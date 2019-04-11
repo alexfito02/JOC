@@ -1,8 +1,9 @@
 extends KinematicBody2D
-var velocitatmaxima = 100
+var velocitatmaxima = 200
+var velocitat_salt = 600
 var velocitat = Vector2()
-var gravetat = Vector2(0,9.8)
-var salt = Vector2(0,-500)
+var gravetat = Vector2(0,25)
+var salt = Vector2(0,-velocitat_salt)
 func _process(delta):
 	mou()
 	anima()
