@@ -1,10 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Tim.gd" type="Script" id=1]
-
 [ext_resource path="res://Kenney/Tilesheet/platformerPack_character.png" type="Texture" id=2]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "Camina"
 length = 0.5
 loop = true
@@ -48,10 +47,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1, 6 ]
+"values": [ 1 ]
 }
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
@@ -64,7 +63,7 @@ __meta__ = {
 polygon = PoolVector2Array( 21.15, 47.8749, -16.6519, 47.8749, -17.1526, 38.6122, -23.1609, 37.8611, -25.6643, 34.857, -32.1733, 35.1074, -35.1774, 32.8543, -37.6808, 28.5984, -35.6781, 22.3398, -32.674, 16.0812, -27.1664, 12.0757, -27.1664, -19.4677, 27.659, -19.2173, 27.659, 15.3302, 29.9121, 17.5833, 33.9176, 18.835, 35.67, 22.0895, 37.1721, 27.8474, 33.4169, 33.1046, 27.659, 33.1046, 25.9066, 35.608, 22.6521, 38.1115, 15.1418, 37.1101, 12.1376, 37.3605, 11.3866, 40.6149, 16.1431, 44.1197 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Camina = SubResource( 4 )
+anims/Camina = SubResource( 1 )
 anims/Quiet = SubResource( 2 )
 anims/Salta = SubResource( 3 )
 
@@ -72,5 +71,5 @@ anims/Salta = SubResource( 3 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 4
-frame = 6
+frame = 3
 
