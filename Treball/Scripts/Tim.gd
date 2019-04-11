@@ -1,6 +1,6 @@
 extends KinematicBody2D
-var velocitatpocapoc = 0
-var velocitatmaxima = 200
+var velocitatpocapoc = 150
+var velocitatmaxima = 250
 var velocitat_salt = 600
 var velocitat = Vector2()
 var gravetat = Vector2(0,25)
@@ -31,6 +31,8 @@ func anima():
 	if velocitat.x > 0:
 		$AnimationPlayer.play("Camina")
 		$Sprite.flip_h = false
+	if not is_on_floor():
+		$AnimationPlayer.play("Salta")
 	elif velocitat.x > velocitatpocapoc:
 		$AnimationPlayer.play("Corre")
 		$Sprite.flip_h = false
