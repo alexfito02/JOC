@@ -217,17 +217,19 @@ resource_local_to_scene = true
 
 [node name="Node2D" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Terreny" type="TileMap" parent="."]
 tile_set = SubResource( 12 )
 format = 1
 tile_data = PoolIntArray( 458762, 0, 0, 458763, 0, 0, 458772, 0, 0, 458773, 0, 0, 524288, 0, 0, 524303, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 589852, 0, 0, 589853, 0, 0, 589854, 0, 0, 589855, 0, 0, 589856, 0, 0, 589857, 0, 0 )
 
-[node name="KinematicBody2D2" parent="." instance=ExtResource( 2 )]
+[node name="Jugador" parent="." instance=ExtResource( 2 )]
 position = Vector2( 36.8219, 456.518 )
+collision_mask = 6
 
-[node name="Camera2D" type="Camera2D" parent="KinematicBody2D2"]
+[node name="Camera2D" type="Camera2D" parent="Jugador"]
 position = Vector2( 479.645, -103.042 )
 current = true
 
+[node name="Lava" type="StaticBody2D" parent="."]
+collision_layer = 2
 
-[editable path="KinematicBody2D2"]
