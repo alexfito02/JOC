@@ -227,7 +227,7 @@ position = Vector2( 36.8219, 456.518 )
 collision_mask = 6
 
 [node name="Camera2D" type="Camera2D" parent="Jugador"]
-position = Vector2( 479.645, -103.042 )
+position = Vector2( 118.525, -98.2271 )
 current = true
 
 [node name="Lava" type="StaticBody2D" parent="."]
