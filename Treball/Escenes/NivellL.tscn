@@ -64,7 +64,7 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 4 )
 
 [node name="Enemic" type="KinematicBody2D" parent="."]
-position = Vector2( -55.7896, 236.843 )
+position = Vector2( 140, 106.316 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
@@ -77,7 +77,8 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
 animation = "Enemic volador 1"
-frame = 5
+frame = 2
 playing = true
 
-[connection signal="area_entered" from="Area2D" to="Enemic" method="_on_Area2D_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

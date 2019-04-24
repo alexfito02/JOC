@@ -14,10 +14,18 @@ func _process(delta):
 	if vida_planta == 0:
 		print("hola")
 		$Fons/CenterContainer/Label.visible = true
-	if Input.is_action_pressed("ui_down"):
-		print("abaix")
-		vida_planta -= 25
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Area2D_area_entered(area): #Aquesta s'activa quan entren l'area de la flor
+	print("enemic dins flor")
+	vida_planta -= 25
+
+
+func _on_Area2D_body_entered(body):
+	print("enemic dins flor")
+	vida_planta -= 25
+	$Enemic.position = Vector2(155,130)
