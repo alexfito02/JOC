@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Kenney/Spritesheet/platformIndustrial_sheet.png" type="Texture" id=1]
 [ext_resource path="res://Escenes/PROTAGONISTA.tscn" type="PackedScene" id=2]
@@ -217,6 +217,9 @@ resource_local_to_scene = true
 } ]
 10/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 181.585, 451.617 )
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Terreny" type="TileMap" parent="."]
@@ -242,4 +245,9 @@ position = Vector2( -406.582, 276.237 )
 rotation = 1.01357
 scale = Vector2( 1.19974, 2.24827 )
 texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava"]
+position = Vector2( -407.915, 274.909 )
+rotation = -0.55156
+shape = SubResource( 13 )
 
