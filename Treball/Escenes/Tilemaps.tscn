@@ -1,7 +1,9 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Kenney/Spritesheet/platformIndustrial_sheet.png" type="Texture" id=1]
 [ext_resource path="res://Escenes/PROTAGONISTA.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Escenes/Lava.gd" type="Script" id=3]
+[ext_resource path="res://Imatges/lava.png" type="Texture" id=4]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
@@ -218,9 +220,10 @@ resource_local_to_scene = true
 [node name="Node2D" type="Node2D"]
 
 [node name="Terreny" type="TileMap" parent="."]
+position = Vector2( 2, 0 )
 tile_set = SubResource( 12 )
 format = 1
-tile_data = PoolIntArray( 458762, 0, 0, 458763, 0, 0, 458772, 0, 0, 458773, 0, 0, 524288, 0, 0, 524303, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 589852, 0, 0, 589853, 0, 0, 589854, 0, 0, 589855, 0, 0, 589856, 0, 0, 589857, 0, 0 )
+tile_data = PoolIntArray( 458762, 0, 0, 458763, 0, 0, 458772, 0, 0, 458773, 0, 0, 524288, 0, 0, 524303, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524316, 0, 0, 524317, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 524321, 0, 0, 524322, 0, 0, 524324, 0, 0, 524325, 0, 0, 524326, 0, 0, 524327, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 589852, 0, 0, 589853, 0, 0, 589854, 0, 0, 589855, 0, 0, 589856, 0, 0, 589857, 0, 0, 589858, 0, 0, 589863, 0, 0, 655394, 0, 0, 655399, 0, 0, 720930, 0, 0, 720935, 0, 0, 786466, 0, 0, 786467, 0, 0, 786468, 0, 0, 786469, 0, 0, 786470, 0, 0, 786471, 0, 0 )
 
 [node name="Jugador" parent="." instance=ExtResource( 2 )]
 position = Vector2( 36.8219, 456.518 )
@@ -232,4 +235,11 @@ current = true
 
 [node name="Lava" type="StaticBody2D" parent="."]
 collision_layer = 2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Lava"]
+position = Vector2( -406.582, 276.237 )
+rotation = 1.01357
+scale = Vector2( 1.19974, 2.24827 )
+texture = ExtResource( 4 )
 

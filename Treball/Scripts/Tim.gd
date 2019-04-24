@@ -8,6 +8,9 @@ var salt = Vector2(0,-velocitat_salt)
 func _process(delta):
 	mou()
 	anima()
+	if position.y > 1000:
+		mor()
+		
 
 func mou():
 	velocitat.x = 0
@@ -47,3 +50,6 @@ func anima():
 	else:
 		$AnimationPlayer.play("Quiet")
 	
+func mor():
+	queue_free()
+	get_tree().reload_current_scene()
