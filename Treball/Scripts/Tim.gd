@@ -5,6 +5,7 @@ var velocitat_salt = 600
 var velocitat = Vector2()
 var gravetat = Vector2(0,25)
 var salt = Vector2(0,-velocitat_salt)
+var velocitatajupit = 75
 func _process(delta):
 	mou()
 	anima()
@@ -23,35 +24,31 @@ func mou():
 		velocitat.x = -velocitatmaxima
 	if Input.is_action_pressed("ui_up") and  is_on_floor():
 		velocitat += salt
-	if Input.is_action_pressed("ui_control"):
-		pass
+	if Input.is_action_pressed("ui_control") and is_on_floor():
+		velocitat.x = velocitatajupit
 	if not is_on_floor():
 		velocitat += gravetat
 	velocitat = move_and_slide(velocitat, Vector2(0,-1))
 	
 func anima():
+	if velocitat.x < 0:
+		$Sprite.flip_h = true
+	elif velocitat.x > 0:
+		$Sprite.flip_h = false
+		
 	if Input.is_action_pressed("ui_control"):
 		$AnimationPlayer.play("Ajupirse")
-	elif velocitat.x > 0 and velocitat.y == 0 and is_on_floor():
-		$AnimationPlayer.play("Camina")
-		$Sprite.flip_h = false
+	elif is_on_floor():
+		if abs(velocitat.x) == velocitatpocapoc:
+			$AnimationPlayer.play("Camina")
+		elif abs(velocitat.x) == velocitatmaxima:
+			$AnimationPlayer.play("Corre")
+		elif abs(velocitat.x) < velocitatpocapoc:
+			$AnimationPlayer.play("Quiet")
 	elif velocitat.y  != 0:
 		$AnimationPlayer.play("Salta")
-		if velocitat.x > 0:
-			$Sprite.flip_h = false
-		elif velocitat.x < 0:
-			$Sprite.flip_h = true
-	if velocitat.x > velocitatpocapoc and velocitat.y == 0 and is_on_floor() and $AnimationPlayer.current_animation != "Corre":
-		$AnimationPlayer.play("Corre")
-		$Sprite.flip_h = false
-	elif velocitat.x < 0 and velocitat.y == 0 and is_on_floor():
-		$AnimationPlayer.play("Camina")
-		$Sprite.flip_h = true
-	if velocitat.x < -velocitatpocapoc and velocitat.y == 0 and is_on_floor() and $AnimationPlayer.current_animation != "Corre":
-		$AnimationPlayer.play("Corre")
-		$Sprite.flip_h = true
-	elif velocitat.x < velocitatpocapoc and velocitat.x > -velocitatpocapoc and is_on_floor():
-		$AnimationPlayer.play("Quiet")
+
+
 	print($AnimationPlayer.current_animation)
 
 func mor():
