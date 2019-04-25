@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Kenney/Spritesheet/platformIndustrial_sheet.png" type="Texture" id=1]
 [ext_resource path="res://Escenes/PROTAGONISTA.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Escenes/Lava.gd" type="Script" id=3]
-[ext_resource path="res://Imatges/lava.png" type="Texture" id=4]
+[ext_resource path="res://Imatges/imatges alex/Lava_feta_miguel_1.png" type="Texture" id=4]
+[ext_resource path="res://Imatges/imatges alex/Lava_feta_miguel_2.png" type="Texture" id=5]
+[ext_resource path="res://Imatges/imatges alex/botó.png" type="Texture" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
@@ -217,7 +219,20 @@ resource_local_to_scene = true
 } ]
 10/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "lava en moviment",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 181.585, 451.617 )
 
 [node name="Node2D" type="Node2D"]
@@ -226,7 +241,7 @@ extents = Vector2( 181.585, 451.617 )
 position = Vector2( 2, 0 )
 tile_set = SubResource( 12 )
 format = 1
-tile_data = PoolIntArray( 458762, 0, 0, 458763, 0, 0, 458772, 0, 0, 458773, 0, 0, 524288, 0, 0, 524303, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524316, 0, 0, 524317, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 524321, 0, 0, 524322, 0, 0, 524324, 0, 0, 524325, 0, 0, 524326, 0, 0, 524327, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 589852, 0, 0, 589853, 0, 0, 589854, 0, 0, 589855, 0, 0, 589856, 0, 0, 589857, 0, 0, 589858, 0, 0, 589863, 0, 0, 655394, 0, 0, 655399, 0, 0, 720930, 0, 0, 720935, 0, 0, 786466, 0, 0, 786467, 0, 0, 786468, 0, 0, 786469, 0, 0, 786470, 0, 0, 786471, 0, 0 )
+tile_data = PoolIntArray( 393245, 0, 0, 393246, 0, 0, 393247, 0, 0, 393248, 0, 0, 393249, 0, 0, 393271, 0, 0, 393272, 0, 0, 393273, 0, 0, 393277, 0, 0, 393278, 0, 0, 393279, 0, 0, 458772, 0, 0, 458773, 0, 0, 524288, 0, 0, 524303, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524316, 0, 0, 524317, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 524321, 0, 0, 524322, 0, 0, 524325, 0, 0, 524326, 0, 0, 524327, 0, 0, 524328, 0, 0, 524329, 0, 0, 524330, 0, 0, 524342, 0, 0, 524343, 0, 0, 524344, 0, 0, 524345, 0, 0, 524346, 0, 0, 524347, 0, 0, 524348, 0, 0, 524349, 0, 0, 524350, 0, 0, 524351, 0, 0, 524352, 0, 0, 524353, 0, 0, 524356, 0, 0, 524358, 0, 0, 524360, 0, 0, 524362, 0, 0, 524363, 0, 0, 524364, 0, 0, 524365, 0, 0, 524366, 0, 0, 524367, 0, 0, 524368, 0, 0, 524369, 0, 0, 524370, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589846, 0, 0, 589847, 0, 0, 589848, 0, 0, 589849, 0, 0, 589850, 0, 0, 589851, 0, 0, 589852, 0, 0, 589853, 0, 0, 589854, 0, 0, 589855, 0, 0, 589856, 0, 0, 589857, 0, 0, 589858, 0, 0, 589863, 0, 0, 589866, 0, 0, 589867, 0, 0, 589868, 0, 0, 589877, 0, 0, 589878, 0, 0, 589888, 0, 0, 589889, 0, 0, 655394, 0, 0, 655399, 0, 0, 655404, 0, 0, 655412, 0, 0, 655413, 0, 0, 655424, 0, 0, 655425, 0, 0, 720930, 0, 0, 720935, 0, 0, 720940, 0, 0, 720947, 0, 0, 720948, 0, 0, 720960, 0, 0, 720961, 0, 0, 786466, 0, 0, 786467, 0, 0, 786468, 0, 0, 786469, 0, 0, 786470, 0, 0, 786471, 0, 0, 786476, 0, 0, 786482, 0, 0, 786483, 0, 0, 786496, 0, 0, 786497, 0, 0, 852012, 0, 0, 852013, 0, 0, 852017, 0, 0, 852018, 0, 0, 917549, 0, 0, 917550, 0, 0, 917551, 0, 0, 917552, 0, 0, 917553, 0, 0 )
 
 [node name="Jugador" parent="." instance=ExtResource( 2 )]
 position = Vector2( 36.8219, 456.518 )
@@ -237,17 +252,35 @@ position = Vector2( 118.525, -98.2271 )
 current = true
 
 [node name="Lava" type="StaticBody2D" parent="."]
+position = Vector2( -482.459, -22.108 )
+rotation = -1.02113
 collision_layer = 2
 script = ExtResource( 3 )
 
-[node name="Sprite" type="Sprite" parent="Lava"]
-position = Vector2( -406.582, 276.237 )
-rotation = 1.01357
-scale = Vector2( 1.19974, 2.24827 )
-texture = ExtResource( 4 )
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Lava"]
+position = Vector2( -261.799, 314.227 )
+rotation = 1.83797
+scale = Vector2( 9.13022, 5 )
+frames = SubResource( 13 )
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava"]
-position = Vector2( -407.915, 274.909 )
+position = Vector2( -403.707, 286.355 )
 rotation = -0.55156
-shape = SubResource( 13 )
+shape = SubResource( 14 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="TextureButton" type="TextureButton" parent="Control/CanvasLayer"]
+margin_left = 946.551
+margin_top = 11.5541
+margin_right = 1458.55
+margin_bottom = 525.554
+rect_scale = Vector2( 0.119998, 0.120001 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 6 )
 
