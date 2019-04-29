@@ -233,7 +233,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 181.585, 451.617 )
+extents = Vector2( 181.585, 459.467 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -252,21 +252,25 @@ position = Vector2( 118.525, -98.2271 )
 current = true
 
 [node name="Lava" type="StaticBody2D" parent="."]
-position = Vector2( -482.459, -22.108 )
+position = Vector2( -301.197, -44.7658 )
 rotation = -1.02113
 collision_layer = 2
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Lava"]
 position = Vector2( -261.799, 314.227 )
-rotation = 1.83797
+rotation = 2.26893
 scale = Vector2( 9.13022, 5 )
 frames = SubResource( 13 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava"]
-position = Vector2( -403.707, 286.355 )
-rotation = -0.55156
+position = Vector2( -318.399, 266.568 )
+rotation = 0.698132
 shape = SubResource( 14 )
 
 [node name="Control" type="Control" parent="."]
