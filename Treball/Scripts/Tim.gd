@@ -24,32 +24,31 @@ func mou():
 		velocitat.x = -velocitatmaxima
 	if Input.is_action_pressed("ui_up") and  is_on_floor():
 		velocitat += salt
-	if Input.is_action_pressed("ui_control") and is_on_floor():
+	if Input.is_action_pressed("ui_control") and is_on_floor() and Input.is_action_pressed("ui_right"):
 		velocitat.x = velocitatajupit
+	if Input.is_action_pressed("ui_control") and is_on_floor() and Input.is_action_pressed("ui_left"):
+		velocitat.x = -velocitatajupit
 	if not is_on_floor():
 		velocitat += gravetat
 	velocitat = move_and_slide(velocitat, Vector2(0,-1))
+	
 	
 func anima():
 	if velocitat.x < 0:
 		$Sprite.flip_h = true
 	elif velocitat.x > 0:
 		$Sprite.flip_h = false
-		
-	if Input.is_action_pressed("ui_control"):
-		$AnimationPlayer.play("Ajupirse")
-	elif is_on_floor():
+	if is_on_floor():
 		if abs(velocitat.x) == velocitatpocapoc:
 			$AnimationPlayer.play("Camina")
+		elif  velocitat.x == velocitatajupit:
+			$AnimationPlayer.play("Ajupirse")
 		elif abs(velocitat.x) == velocitatmaxima:
 			$AnimationPlayer.play("Corre")
-		elif abs(velocitat.x) < velocitatpocapoc:
+		elif abs(velocitat.x) == 0:
 			$AnimationPlayer.play("Quiet")
 	elif velocitat.y  != 0:
 		$AnimationPlayer.play("Salta")
-
-
-	print($AnimationPlayer.current_animation)
 
 func mor():
 	queue_free()
