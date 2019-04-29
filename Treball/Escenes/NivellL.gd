@@ -29,3 +29,9 @@ func _on_Area2D_body_entered(body):
 	print("enemic dins flor")
 	vida_planta -= 25
 	$Enemic.position = Vector2(155,130)
+	$Enemic.moure = false
+	$Enemic2.position = Vector2(155,130)
+	$Enemic2.moure = false
+	$Enemic3.position = Vector2(155,130)
+	$Enemic3.moure = false
+	
