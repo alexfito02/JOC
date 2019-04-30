@@ -34,7 +34,6 @@ func mou():
 		$AnimationPlayer.play("Ajupirse")
 	if not is_on_floor():
 		velocitat += gravetat
-	print(velocitat)
 	velocitat = move_and_slide(velocitat, Vector2(0,-1))
 	
 	
@@ -54,8 +53,6 @@ func anima():
 			pass
 	elif velocitat.y  != 0:
 		$AnimationPlayer.play("Salta")
-	
-	print($AnimationPlayer.current_animation)
 
 func mor():
 	queue_free()
