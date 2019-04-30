@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Escenes/NivellL.gd" type="Script" id=1]
 [ext_resource path="res://Imatges/Imatges Miguel/Fons.jpg" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Kenney/PNG/Enemies/wingMan5.png" type="Texture" id=10]
 [ext_resource path="res://Escenes/Enemic2_Miguel.gd" type="Script" id=11]
 [ext_resource path="res://Escenes/Enemic3_Miguel.gd" type="Script" id=12]
+[ext_resource path="res://Escenes/Enemic4_Miguel.gd" type="Script" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -66,7 +67,7 @@ scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 4 )
 
 [node name="Enemic" type="KinematicBody2D" parent="."]
-position = Vector2( 140, 106.316 )
+position = Vector2( -34.3393, -55.7458 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
@@ -79,11 +80,11 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
 animation = "Enemic volador 1"
-frame = 3
+frame = 6
 playing = true
 
 [node name="Enemic2" type="KinematicBody2D" parent="."]
-position = Vector2( 917.958, 119.146 )
+position = Vector2( 1122.99, -69.9261 )
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
@@ -96,15 +97,16 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
 animation = "Enemic volador 1"
-frame = 2
+frame = 5
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic2"]
 wait_time = 5.0
+one_shot = true
 autostart = true
 
 [node name="Enemic3" type="KinematicBody2D" parent="."]
-position = Vector2( 931.463, 502.201 )
+position = Vector2( 1162.28, 485.013 )
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
@@ -117,14 +119,38 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 2 )
 animation = "Enemic volador 1"
-frame = 2
+frame = 5
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic3"]
-wait_time = 7.0
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="Enemic4" type="KinematicBody2D" parent="."]
+position = Vector2( -108.434, 465.369 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic4"]
+polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.4474, 21.6006, 18.065, 21.6006, -9.47695, 10.8233, -21.4517, -10.1326, -22.0505, -23.9035, -6.48326 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic4"]
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 2 )
+animation = "Enemic volador 1"
+frame = 5
+playing = true
+
+[node name="Timer" type="Timer" parent="Enemic4"]
+wait_time = 15.0
+one_shot = true
 autostart = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="Enemic2/Timer" to="Enemic2" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Enemic3/Timer" to="Enemic3" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Enemic4/Timer" to="Enemic4" method="_on_Timer_timeout"]
