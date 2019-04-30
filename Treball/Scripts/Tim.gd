@@ -5,9 +5,11 @@ var velocitat_salt = 600
 var velocitat = Vector2()
 var gravetat = Vector2(0,25)
 var salt = Vector2(0,-velocitat_salt)
-var velocitatajupit = 75
-func _process(delta):
+var velocitatajupit = 50
+func _physics_process(delta):
 	mou()
+	
+func _process(delta):
 	anima()
 	if position.y > 1000:
 		mor()
@@ -26,10 +28,13 @@ func mou():
 		velocitat += salt
 	if Input.is_action_pressed("ui_control") and is_on_floor() and Input.is_action_pressed("ui_right"):
 		velocitat.x = velocitatajupit
+		$AnimationPlayer.play("Ajupirse")
 	if Input.is_action_pressed("ui_control") and is_on_floor() and Input.is_action_pressed("ui_left"):
 		velocitat.x = -velocitatajupit
+		$AnimationPlayer.play("Ajupirse")
 	if not is_on_floor():
 		velocitat += gravetat
+	print(velocitat)
 	velocitat = move_and_slide(velocitat, Vector2(0,-1))
 	
 	
@@ -41,14 +46,16 @@ func anima():
 	if is_on_floor():
 		if abs(velocitat.x) == velocitatpocapoc:
 			$AnimationPlayer.play("Camina")
-		elif  velocitat.x == velocitatajupit:
-			$AnimationPlayer.play("Ajupirse")
 		elif abs(velocitat.x) == velocitatmaxima:
 			$AnimationPlayer.play("Corre")
 		elif abs(velocitat.x) == 0:
 			$AnimationPlayer.play("Quiet")
+		else:
+			pass
 	elif velocitat.y  != 0:
 		$AnimationPlayer.play("Salta")
+	
+	print($AnimationPlayer.current_animation)
 
 func mor():
 	queue_free()
