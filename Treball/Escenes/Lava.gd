@@ -1,11 +1,10 @@
 extends StaticBody2D
 
-var velocitat = Vector2(200,0)
+var velocitat = Vector2(1,0)
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+func _process(delta):
+	mou_lava()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func mou_lava():
+	position = position + velocitat
+
