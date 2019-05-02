@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Escenes/Tilemaps.gd" type="Script" id=1]
 [ext_resource path="res://Kenney/Spritesheet/platformIndustrial_sheet.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Escenes/Lava.gd" type="Script" id=5]
 [ext_resource path="res://Imatges/imatges alex/Lava_feta_miguel_1.png" type="Texture" id=6]
 [ext_resource path="res://Imatges/imatges alex/Lava_feta_miguel_2.png" type="Texture" id=7]
+[ext_resource path="res://Escenes/Menu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Escenes/Menu.gd" type="Script" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
@@ -290,4 +292,11 @@ position = Vector2( -460.249, 424.358 )
 rotation = -0.657298
 shape = SubResource( 14 )
 
+[node name="Menu" parent="." instance=ExtResource( 8 )]
+position = Vector2( 946.545, 12.0097 )
+rotation = 0.000481323
+scale = Vector2( 0.119998, 0.120001 )
+script = ExtResource( 9 )
+
+[connection signal="pressed" from="Control/CanvasLayer/TextureButton" to="Menu" method="_on_TextureButton_pressed"]
 [connection signal="body_entered" from="Lava" to="Jugador" method="_on_Area2D_body_entered"]
