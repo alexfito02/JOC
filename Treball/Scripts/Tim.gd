@@ -51,9 +51,8 @@ func anima():
 			$AnimationPlayer.play("Quiet")
 		else:
 			pass
-	elif velocitat.y  != 0:
+	elif abs(velocitat.y)  != 0:
 		$AnimationPlayer.play("Salta")
-
 func mor():
 	queue_free()
 	get_tree().reload_current_scene()
