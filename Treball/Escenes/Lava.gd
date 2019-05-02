@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends Area2D
 
 var velocitat = Vector2(1,0)
 
@@ -7,4 +7,5 @@ func _process(delta):
 
 func mou_lava():
 	position = position + velocitat
+
 
