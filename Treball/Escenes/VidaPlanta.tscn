@@ -7,11 +7,8 @@
 scale = Vector2( 2, 2 )
 
 [node name="TextureProgress" type="TextureProgress" parent="."]
-margin_right = 213.0
-margin_bottom = 109.0
-min_value = 1.0
 value = 100.0
 texture_over = ExtResource( 1 )
 texture_progress = ExtResource( 2 )
-tint_progress = Color( 0.8, 0, 0.0196078, 1 )
+tint_progress = Color( 0.537255, 0.00784314, 0.0196078, 1 )
 

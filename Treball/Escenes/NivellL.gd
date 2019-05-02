@@ -11,6 +11,7 @@ func _ready():
 	print("comança")
 
 func _process(delta):
+	barra_vida_planta()
 	if vida_planta == 0:
 		print("hola")
 		$Fons/CenterContainer/Label.visible = true
@@ -40,3 +41,15 @@ func _on_Area2D_body_entered(body):
 	if body == $Enemic4:
 		$Enemic4.position = Vector2(-155,-130)
 		$Enemic4.moure = false
+
+func barra_vida_planta():
+	if vida_planta == 100:
+		$Node2D/TextureProgress.value = 100
+	if vida_planta == 75:
+		$Node2D/TextureProgress.value = 65
+	if vida_planta == 50:
+		$Node2D/TextureProgress.value = 50
+	if vida_planta == 25:
+		$Node2D/TextureProgress.value = 40
+	if vida_planta == 0:
+		$Node2D/TextureProgress.value = 0
