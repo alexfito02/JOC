@@ -11,13 +11,14 @@ extents = Vector2( 129, 18.9998 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 125, 19.9998 )
 
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="Popup"]
+visible = true
 
 [node name="Recuadre menu" type="Area2D" parent="."]
 
 [node name="Sprite2" type="Sprite" parent="Recuadre menu"]
-position = Vector2( 198.439, 151.11 )
-rotation = -1.57687
+position = Vector2( 199.275, 153.201 )
+rotation = -1.5755
 scale = Vector2( 0.150711, 0.150711 )
 texture = ExtResource( 1 )
 
@@ -26,6 +27,7 @@ margin_left = 65.8919
 margin_top = 63.4322
 margin_right = 332.892
 margin_bottom = 244.432
+rect_rotation = -0.311404
 text = "
                         Resume
 						
@@ -36,14 +38,17 @@ text = "
 						 Sortir"
 
 [node name="Resume" type="CollisionShape2D" parent="Recuadre menu"]
+visible = false
 position = Vector2( 200, 92.0001 )
 shape = SubResource( 1 )
 
 [node name="Restart" type="CollisionShape2D" parent="Recuadre menu"]
+visible = false
 position = Vector2( 199, 148 )
 shape = SubResource( 2 )
 
 [node name="Sortir" type="CollisionShape2D" parent="Recuadre menu"]
+visible = false
 position = Vector2( 200, 206 )
 shape = SubResource( 3 )
 

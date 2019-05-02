@@ -6,6 +6,7 @@ var velocitat = Vector2()
 var gravetat = Vector2(0,25)
 var salt = Vector2(0,-velocitat_salt)
 var velocitatajupit = 50
+
 func _physics_process(delta):
 	mou()
 	
