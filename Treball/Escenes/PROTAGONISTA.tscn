@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Tim.gd" type="Script" id=1]
 [ext_resource path="res://Kenney/Tilesheet/platformerPack_character.png" type="Texture" id=2]
@@ -90,6 +90,35 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=4]
+resource_name = "DobleSalt"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=5]
 length = 0.15
 loop = true
 tracks/0/type = "value"
@@ -117,7 +146,7 @@ tracks/1/keys = {
 "values": [ PoolVector2Array( 21.15, 47.8749, -16.6519, 47.8749, -17.1526, 38.6122, -23.1609, 37.8611, -25.6643, 34.857, -32.1733, 35.1074, -35.1774, 32.8543, -37.6808, 28.5984, -35.6781, 22.3398, -32.674, 16.0812, -27.1664, 12.0757, -27.1664, -19.4677, 27.659, -19.2173, 27.659, 15.3302, 29.9121, 17.5833, 33.9176, 18.835, 35.67, 22.0895, 37.1721, 27.8474, 33.4169, 33.1046, 27.659, 33.1046, 25.9066, 35.608, 22.6521, 38.1115, 15.1418, 37.1101, 12.1376, 37.3605, 11.3866, 40.6149, 16.1431, 44.1197 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -158,8 +187,9 @@ polygon = PoolVector2Array( 42.1516, 48.3523, -21.4359, 48.3523, -18.1815, 42.34
 anims/Ajupirse = SubResource( 1 )
 anims/Camina = SubResource( 2 )
 anims/Corre = SubResource( 3 )
-anims/Quiet = SubResource( 4 )
-anims/Salta = SubResource( 5 )
+anims/DobleSalt = SubResource( 4 )
+anims/Quiet = SubResource( 5 )
+anims/Salta = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
