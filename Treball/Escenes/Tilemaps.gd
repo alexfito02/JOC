@@ -14,7 +14,7 @@ func _ready():
 
 
 func _on_TextureButton_pressed():
-	$Menu.popup_centered()
+	$Nivell/Control/CanvasLayer/Menu.popup_centered()
 	get_tree().paused = true
 	
 
