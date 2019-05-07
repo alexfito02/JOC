@@ -24,23 +24,36 @@ func _process(delta):
 func _on_Area2D_area_entered(area): #Aquesta s'activa quan entren l'area de la flor
 	print("enemic dins flor")
 	vida_planta -= 25
+	if area == $Enemic:
+		$Enemic.position = Vector2(-155,-130)
+		$Enemic.moure = false
+	if area == $Enemic2:
+		$Enemic2.position = Vector2(-155,-130)
+		$Enemic2.moure = false
+	if area == $Enemic3:
+		$Enemic3.position = Vector2(-155,-130)
+		$Enemic3.moure = false
+	if area == $Enemic4:
+		$Enemic4.position = Vector2(-155,-130)
+		$Enemic4.moure = false
 
 
 func _on_Area2D_body_entered(body):
-	print("enemic dins flor")
-	vida_planta -= 25
-	if body == $Enemic:
-		$Enemic.position = Vector2(-155,-130)
-		$Enemic.moure = false
-	if body == $Enemic2:
-		$Enemic2.position = Vector2(-155,-130)
-		$Enemic2.moure = false
-	if body == $Enemic3:
-		$Enemic3.position = Vector2(-155,-130)
-		$Enemic3.moure = false
-	if body == $Enemic4:
-		$Enemic4.position = Vector2(-155,-130)
-		$Enemic4.moure = false
+	if not body == $Area2D2 or not body == $StaticBody2D or not body == $Personatje/KinematicBody2D:
+		print("enemic dins flor")
+		vida_planta -= 25
+		if body == $Enemic:
+			$Enemic.position = Vector2(-155,-130)
+			$Enemic.moure = false
+		if body == $Enemic2:
+			$Enemic2.position = Vector2(-155,-130)
+			$Enemic2.moure = false
+		if body == $Enemic3:
+			$Enemic3.position = Vector2(-155,-130)
+			$Enemic3.moure = false
+		if body == $Enemic4:
+			$Enemic4.position = Vector2(-155,-130)
+			$Enemic4.moure = false
 
 func barra_vida_planta():
 	if vida_planta == 100:
@@ -53,3 +66,17 @@ func barra_vida_planta():
 		$Node2D/TextureProgress.value = 40
 	if vida_planta == 0:
 		$Node2D/TextureProgress.value = 0
+
+func _on_Area2D2_body_entered(body):
+	if body == $Enemic:
+		$Enemic.position = Vector2(-155,-130)
+		$Enemic.moure = false
+	if body == $Enemic2:
+		$Enemic2.position = Vector2(-155,-130)
+		$Enemic2.moure = false
+	if body == $Enemic3:
+		$Enemic3.position = Vector2(-155,-130)
+		$Enemic3.moure = false
+	if body == $Enemic4:
+		$Enemic4.position = Vector2(-155,-130)
+		$Enemic4.moure = false
