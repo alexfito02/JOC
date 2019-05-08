@@ -301,6 +301,9 @@ rotation = -0.657298
 shape = SubResource( 14 )
 
 [connection signal="pressed" from="Nivell/Control/CanvasLayer/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Nivell/Control/CanvasLayer/Menu/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Nivell/Control/CanvasLayer/Menu/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="Nivell/Control/CanvasLayer/Menu/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="body_entered" from="Nivell/Lava" to="Nivell/Jugador" method="_on_Area2D_body_entered"]
 
 [editable path="Nivell/Control/CanvasLayer/Menu"]

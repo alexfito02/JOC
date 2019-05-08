@@ -1,4 +1,4 @@
-extends KinematicBody
+extends KinematicBody2D
 var velocitat = Vector2()
 var velocitat_max = 1.5
 var moure = true

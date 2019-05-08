@@ -64,6 +64,8 @@ ui_control={
 2d_physics/layer_1="Jugador"
 2d_physics/layer_2="Lava"
 2d_physics/layer_3="Terreny"
+2d_render/layer_10="Protagonista"
+2d_render/Personatge=false
 
 [rendering]
 

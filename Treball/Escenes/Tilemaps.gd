@@ -18,3 +18,15 @@ func _on_TextureButton_pressed():
 	get_tree().paused = true
 	
 
+
+
+func _on_Resume_pressed():
+	pass # Replace with function body.
+
+
+func _on_Restart_pressed():
+	pass # Replace with function body.
+
+
+func _on_Exit_pressed():
+	pass # Replace with function body.
