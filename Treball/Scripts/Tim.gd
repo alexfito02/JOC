@@ -6,6 +6,7 @@ var velocitat = Vector2()
 var gravetat = Vector2(0,25)
 var salt = Vector2(0,-velocitat_salt)
 var punts = 0
+var contador = 0
 func _physics_process(delta):
 	mou()
 	
@@ -45,12 +46,14 @@ func mou():
 	if Input.is_action_just_pressed("ui_up") and  is_on_floor():
 		velocitat += salt
 		punts = 0
+		contador = 0
 	if not is_on_floor():
 		velocitat += gravetat
-		if punts == 0 and Input.is_action_just_pressed("ui_up"):
+		if punts == 0 and Input.is_action_just_pressed("ui_up") and contador == 0:
 			velocitat.y = 0
 			velocitat += salt
 			punts = 5
+			contador = 1
 	velocitat = move_and_slide(velocitat, Vector2(0,-1))
 	if is_on_floor():
 		print("Estic al terra")
@@ -69,11 +72,10 @@ func anima():
 		$AnimationPlayer.play("Corre")
 	elif punts == 1000:
 		$AnimationPlayer.play("Quiet")
-	elif punts == 0:
+	elif punts == 0 and abs(velocitat.y) > 1:
 		$AnimationPlayer.play("Salta")
 	elif punts == 5:
-		#$AnimationPlayer.play("DobleSalt")
-		pass
+		$AnimationPlayer.play("DobleSalt")
 		
 func mor():
 	queue_free()
