@@ -16,29 +16,46 @@ func _process(delta):
 
 func mou():
 	velocitat.x = 0
-	if velocitat.x == 0 and velocitat.y == 0:
+	if velocitat.x == 0 and velocitat.y == 0 and is_on_floor():
 		punts = 1000
 	if Input.is_action_pressed("ui_right"):
 		velocitat.x = velocitatpocapoc
-		punts = 10
+		if not is_on_floor():
+			punts = 0
+		elif is_on_floor():
+			punts = 10
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_shift"):
 		velocitat.x = velocitatmaxima
-		punts = 20
+		if not is_on_floor():
+			punts = 0
+		elif is_on_floor():
+			punts = 20
 	if Input.is_action_pressed("ui_left"):
 		velocitat.x = -velocitatpocapoc
-		punts = 10
+		if not is_on_floor():
+			punts = 0
+		elif is_on_floor():
+			punts = 10
 	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_shift"):
 		velocitat.x = -velocitatmaxima
-		punts = 20
+		if not is_on_floor():
+			punts = 0
+		elif is_on_floor():
+			punts = 20
 	if Input.is_action_just_pressed("ui_up") and  is_on_floor():
 		velocitat += salt
 		punts = 0
 	if not is_on_floor():
 		velocitat += gravetat
 		if punts == 0 and Input.is_action_just_pressed("ui_up"):
+			velocitat.y = 0
 			velocitat += salt
 			punts = 5
 	velocitat = move_and_slide(velocitat, Vector2(0,-1))
+	if is_on_floor():
+		print("Estic al terra")
+	elif not is_on_floor():
+		print("ESTOY ARRIBA COMO ESPAÑA")
 	
 	
 func anima():
