@@ -25,7 +25,7 @@ func _on_Resume_pressed():
 
 
 func _on_Restart_pressed():
-	pass # Replace with function body.
+	get_tree().reload_current_scene()
 
 
 func _on_Exit_pressed():

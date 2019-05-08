@@ -276,7 +276,6 @@ margin_bottom = 104.597
 texture_normal = ExtResource( 4 )
 
 [node name="Menu" parent="Nivell/Control/CanvasLayer" instance=ExtResource( 5 )]
-visible = false
 margin_left = -50.0
 margin_top = 34.0
 margin_right = 978.0
@@ -293,7 +292,6 @@ position = Vector2( -391.827, 375.976 )
 rotation = 0.9135
 scale = Vector2( 9.03496, 6.21419 )
 frames = SubResource( 13 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nivell/Lava"]
