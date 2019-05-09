@@ -21,44 +21,52 @@ func mou():
 		punts = 1000
 	if Input.is_action_pressed("ui_right"):
 		velocitat.x = velocitatpocapoc
-		if not is_on_floor():
-			punts = 0
-		elif is_on_floor():
+		if velocitat.y > 1:
+			if punts == 5:
+				punts = 5
+			elif punts == 0:
+				punts = 0
+		elif velocitat.y < 1:
 			punts = 10
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_shift"):
 		velocitat.x = velocitatmaxima
-		if not is_on_floor():
-			punts = 0
-		elif is_on_floor():
+		if velocitat.y > 1:
+			if punts == 5:
+				punts = 5
+			elif punts == 0:
+				punts = 0
+		elif velocitat.y < 1:
 			punts = 20
 	if Input.is_action_pressed("ui_left"):
 		velocitat.x = -velocitatpocapoc
-		if not is_on_floor():
-			punts = 0
-		elif is_on_floor():
+		if velocitat.y > 1:
+			if punts == 5:
+				punts = 5
+			elif punts == 0:
+				punts = 0
+		elif velocitat.y < 1:
 			punts = 10
 	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_shift"):
 		velocitat.x = -velocitatmaxima
-		if not is_on_floor():
-			punts = 0
-		elif is_on_floor():
+		if velocitat.y > 1:
+			if punts == 5:
+				punts = 5
+			elif punts == 0:
+				punts = 0
+		elif velocitat.y < 1:
 			punts = 20
-	if Input.is_action_just_pressed("ui_up") and  is_on_floor():
+	if Input.is_action_just_pressed("ui_up") and  abs(velocitat.y) < 1 and is_on_floor():
 		velocitat += salt
 		punts = 0
 		contador = 0
 	if not is_on_floor():
 		velocitat += gravetat
-		if punts == 0 and Input.is_action_just_pressed("ui_up") and contador == 0:
+		if punts == 0 and Input.is_action_just_pressed("ui_up") and contador == 0 and not is_on_floor():
 			velocitat.y = 0
 			velocitat += salt
 			punts = 5
 			contador = 1
 	velocitat = move_and_slide(velocitat, Vector2(0,-1))
-	if is_on_floor():
-		print("Estic al terra")
-	elif not is_on_floor():
-		print("ESTOY ARRIBA COMO ESPAÑA")
 	
 	
 func anima():
@@ -66,15 +74,15 @@ func anima():
 		$Sprite.flip_h = true
 	elif velocitat.x > 0:
 		$Sprite.flip_h = false
-	if punts == 10:
+	if punts == 10 and abs(velocitat.y) < 1:
 		$AnimationPlayer.play("Camina")
-	elif punts == 20:
+	elif punts == 20 and abs(velocitat.y) < 1:
 		$AnimationPlayer.play("Corre")
-	elif punts == 1000:
+	elif punts == 1000 and abs(velocitat.y) < 1:
 		$AnimationPlayer.play("Quiet")
 	elif punts == 0 and abs(velocitat.y) > 1:
 		$AnimationPlayer.play("Salta")
-	elif punts == 5:
+	elif punts == 5 and abs(velocitat.y) > 1:
 		$AnimationPlayer.play("DobleSalt")
 		
 func mor():
