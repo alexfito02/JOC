@@ -14,19 +14,26 @@ func _ready():
 
 
 func _on_TextureButton_pressed():
-	$Nivell/Control/CanvasLayer/Menu.popup_centered()
-	get_tree().paused = true
+	mostra_menu()
 	
-
+func mostra_menu():
+	$Control/CanvasLayer/Menu.popup_centered()
+	get_tree().paused = true
 
 
 func _on_Resume_pressed():
-	pass # Replace with function body.
-
+	print("resume")
 
 func _on_Restart_pressed():
+	print("restart")
 	get_tree().reload_current_scene()
-
+	get_tree().paused = false
 
 func _on_Exit_pressed():
-	pass # Replace with function body.
+		print("Exit")
+	
+	
+func menu_esc():
+	if Input.is_action_just_pressed("esc"):
+		mostra_menu()
+	
