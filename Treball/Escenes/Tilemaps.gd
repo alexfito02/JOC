@@ -23,6 +23,8 @@ func mostra_menu():
 
 func _on_Resume_pressed():
 	print("resume")
+	$Control/CanvasLayer/Menu.hide()
+	get_tree().paused = false
 
 func _on_Restart_pressed():
 	print("restart")
