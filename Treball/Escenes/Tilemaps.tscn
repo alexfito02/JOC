@@ -270,6 +270,7 @@ position = Vector2( -391.827, 375.976 )
 rotation = 0.9135
 scale = Vector2( 9.03496, 6.21419 )
 frames = SubResource( 13 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nivell/Lava"]
@@ -292,10 +293,6 @@ margin_top = 313.0
 margin_right = 490.0
 margin_bottom = 314.0
 size_flags_stretch_ratio = 0.0
-
-[node name="Restart" parent="Control/CanvasLayer/Menu/VSplitContainer" index="1"]
-margin_top = 21.0
-margin_bottom = 40.0
 
 [node name="TextureButton" type="TextureButton" parent="Control/CanvasLayer"]
 margin_left = 854.17
