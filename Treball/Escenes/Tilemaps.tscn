@@ -242,7 +242,6 @@ rotation = -0.000481323
 script = ExtResource( 1 )
 
 [node name="Nivell" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Terreny" type="TileMap" parent="Nivell"]
 position = Vector2( 3, 0.000481323 )
@@ -270,7 +269,6 @@ position = Vector2( -391.827, 375.976 )
 rotation = 0.9135
 scale = Vector2( 9.03496, 6.21419 )
 frames = SubResource( 13 )
-frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nivell/Lava"]
@@ -288,6 +286,7 @@ rect_rotation = -9.62756
 [node name="CanvasLayer" type="CanvasLayer" parent="Control"]
 
 [node name="Menu" parent="Control/CanvasLayer" instance=ExtResource( 7 )]
+visible = true
 margin_left = 490.0
 margin_top = 313.0
 margin_right = 490.0
