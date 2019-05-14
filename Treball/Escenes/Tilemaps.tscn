@@ -260,6 +260,7 @@ position = Vector2( 292.187, -3.65688 )
 current = true
 
 [node name="Lava" type="Area2D" parent="Nivell"]
+visible = false
 position = Vector2( 1137.75, 91.1792 )
 collision_layer = 2
 script = ExtResource( 4 )
@@ -278,6 +279,7 @@ rotation = -0.657298
 shape = SubResource( 14 )
 
 [node name="Control" type="Control" parent="."]
+visible = false
 margin_left = -11.9583
 margin_top = -21.5249
 margin_right = 28.0417
