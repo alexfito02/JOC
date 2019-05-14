@@ -260,6 +260,7 @@ position = Vector2( 292.187, -3.65688 )
 current = true
 
 [node name="Lava" type="Area2D" parent="Nivell"]
+visible = false
 position = Vector2( 1137.75, 91.1792 )
 collision_layer = 2
 script = ExtResource( 4 )
@@ -269,6 +270,7 @@ position = Vector2( -391.827, 375.976 )
 rotation = 0.9135
 scale = Vector2( 9.03496, 6.21419 )
 frames = SubResource( 13 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nivell/Lava"]
@@ -277,6 +279,7 @@ rotation = -0.657298
 shape = SubResource( 14 )
 
 [node name="Control" type="Control" parent="."]
+visible = false
 margin_left = -11.9583
 margin_top = -21.5249
 margin_right = 28.0417
@@ -286,7 +289,6 @@ rect_rotation = -9.62756
 [node name="CanvasLayer" type="CanvasLayer" parent="Control"]
 
 [node name="Menu" parent="Control/CanvasLayer" instance=ExtResource( 7 )]
-visible = true
 margin_left = 490.0
 margin_top = 313.0
 margin_right = 490.0

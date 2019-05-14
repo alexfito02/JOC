@@ -14,7 +14,7 @@
 [ext_resource path="res://Escenes/Enemic2_Miguel.gd" type="Script" id=12]
 [ext_resource path="res://Escenes/Enemic3_Miguel.gd" type="Script" id=13]
 [ext_resource path="res://Escenes/Enemic4_Miguel.gd" type="Script" id=14]
-[ext_resource path="res://Escenes/PROTAGONISTA.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scripts/Personatje_M.gd" type="Script" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -69,12 +69,13 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 972.118, 10 )
+extents = Vector2( 469.085, 10 )
 
-[node name="Node2D" type="Node2D"]
+[node name="Nivell" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Fons" type="Sprite" parent="."]
+editor/display_folded = true
 position = Vector2( 513.226, 301.324 )
 scale = Vector2( 0.536402, 0.507431 )
 texture = ExtResource( 2 )
@@ -102,6 +103,7 @@ text = "Game over"
 [node name="Vida_planta" parent="." instance=ExtResource( 4 )]
 
 [node name="Flor" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Flor"]
 position = Vector2( 528.144, 476.702 )
@@ -121,6 +123,7 @@ lifetime = 5.0
 process_material = SubResource( 8 )
 
 [node name="Enemic1" type="Area2D" parent="."]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemic1"]
 light_mask = 512
@@ -142,7 +145,7 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 10 )
 animation = "Enemic volador 1"
-frame = 5
+frame = 4
 playing = true
 
 [node name="Enemic2" type="Area2D" parent="."]
@@ -168,7 +171,7 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 10 )
 animation = "Enemic volador 1"
-frame = 4
+frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic2/Enemic2"]
@@ -194,7 +197,7 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 10 )
 animation = "Enemic volador 1"
-frame = 4
+frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic3/Enemic3"]
@@ -230,7 +233,7 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 10 )
 animation = "Enemic volador 1"
-frame = 4
+frame = 3
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic4/Enemic4"]
@@ -238,18 +241,24 @@ wait_time = 15.0
 one_shot = true
 autostart = true
 
-[node name="Protagonista" parent="." instance=ExtResource( 15 )]
-light_mask = 512
-position = Vector2( 269.277, 334.275 )
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-editor/display_folded = true
 light_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 25.3712, 530.825 )
-scale = Vector2( 1000, 1 )
 shape = SubResource( 11 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+light_mask = 512
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2( 1002.78, 529.11 )
+shape = SubResource( 11 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+script = ExtResource( 15 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
 
 [connection signal="body_entered" from="Flor" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Enemic1" to="." method="_on_Enemic1_body_entered"]
