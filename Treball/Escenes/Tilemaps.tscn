@@ -235,14 +235,13 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 237.838, 466.767 )
+extents = Vector2( 318.692, 823.575 )
 
 [node name="Node2D" type="Node2D"]
 rotation = -0.000481323
 script = ExtResource( 1 )
 
 [node name="Nivell" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Terreny" type="TileMap" parent="Nivell"]
 position = Vector2( 3, 0.000481323 )
@@ -261,24 +260,26 @@ position = Vector2( 292.187, -3.65688 )
 current = true
 
 [node name="Lava" type="Area2D" parent="Nivell"]
+visible = false
 position = Vector2( 1137.75, 91.1792 )
 collision_layer = 2
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Nivell/Lava"]
-position = Vector2( -391.827, 375.976 )
+position = Vector2( -469.657, 413.634 )
 rotation = 0.9135
-scale = Vector2( 9.03496, 6.21419 )
+scale = Vector2( 16.5972, 10.7034 )
 frames = SubResource( 13 )
 frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nivell/Lava"]
-position = Vector2( -460.249, 424.358 )
+position = Vector2( -535.846, 467.161 )
 rotation = -0.657298
 shape = SubResource( 14 )
 
 [node name="Control" type="Control" parent="."]
+visible = false
 margin_left = -11.9583
 margin_top = -21.5249
 margin_right = 28.0417
