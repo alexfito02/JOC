@@ -235,7 +235,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=14]
-extents = Vector2( 237.838, 466.767 )
+extents = Vector2( 318.692, 823.575 )
 
 [node name="Node2D" type="Node2D"]
 rotation = -0.000481323
@@ -265,14 +265,15 @@ collision_layer = 2
 script = ExtResource( 4 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Nivell/Lava"]
-position = Vector2( -391.827, 375.976 )
+position = Vector2( -469.657, 413.634 )
 rotation = 0.9135
-scale = Vector2( 9.03496, 6.21419 )
+scale = Vector2( 16.5972, 10.7034 )
 frames = SubResource( 13 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nivell/Lava"]
-position = Vector2( -460.249, 424.358 )
+position = Vector2( -535.846, 467.161 )
 rotation = -0.657298
 shape = SubResource( 14 )
 
@@ -286,7 +287,6 @@ rect_rotation = -9.62756
 [node name="CanvasLayer" type="CanvasLayer" parent="Control"]
 
 [node name="Menu" parent="Control/CanvasLayer" instance=ExtResource( 7 )]
-visible = true
 margin_left = 490.0
 margin_top = 313.0
 margin_right = 490.0
