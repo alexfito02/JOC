@@ -6,7 +6,7 @@ var velocitat = Vector2()
 var gravetat = Vector2(0,25)
 var salt = Vector2(0,-velocitat_salt)
 var punts = 0
-var contador = 0
+var contador = 1
 func _physics_process(delta):
 	mou()
 	
@@ -21,46 +21,49 @@ func mou():
 		punts = 1000
 	if Input.is_action_pressed("ui_right"):
 		velocitat.x = velocitatpocapoc
-		if not is_on_floor():
+		if abs(velocitat.y) > 1 and contador == 0:
 			punts = 0
-		elif is_on_floor():
+		elif abs(velocitat.y) > 1 and contador == 1:
+			punts = 5
+		elif abs(velocitat.y) < 1:
 			punts = 10
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_shift"):
 		velocitat.x = velocitatmaxima
-		if not is_on_floor():
+		if abs(velocitat.y) > 1 and contador == 0:
 			punts = 0
-		elif is_on_floor():
+		elif abs(velocitat.y) > 1 and contador == 1:
+			punts = 5
+		elif abs(velocitat.y) < 1:
 			punts = 20
 	if Input.is_action_pressed("ui_left"):
 		velocitat.x = -velocitatpocapoc
-		if not is_on_floor():
+		if abs(velocitat.y) > 1 and contador == 0:
 			punts = 0
-		elif is_on_floor():
+		elif abs(velocitat.y) > 1 and contador == 1:
+			punts = 5
+		elif abs(velocitat.y) < 1:
 			punts = 10
 	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_shift"):
 		velocitat.x = -velocitatmaxima
-		if not is_on_floor():
+		if abs(velocitat.y) > 1 and contador == 0:
 			punts = 0
-		elif is_on_floor():
+		elif abs(velocitat.y) > 1 and contador == 1:
+			punts = 5
+		elif abs(velocitat.y) < 1:
 			punts = 20
-	if Input.is_action_just_pressed("ui_up") and  is_on_floor():
+	if Input.is_action_just_pressed("ui_up") and  abs(velocitat.y) < 1 and contador == 1:
 		velocitat += salt
 		punts = 0
 		contador = 0
 	if not is_on_floor():
 		velocitat += gravetat
-		if punts == 0 and Input.is_action_just_pressed("ui_up") and contador == 0:
+		if Input.is_action_just_pressed("ui_up") and contador == 0:
 			velocitat.y = 0
 			velocitat += salt
 			punts = 5
 			contador = 1
 	velocitat = move_and_slide(velocitat, Vector2(0,-1))
-	if is_on_floor():
-		print("Estic al terra")
-	elif not is_on_floor():
-		print("ESTOY ARRIBA COMO ESPAÑA")
-	
-	
+	print(contador)
 func anima():
 	if velocitat.x < 0:
 		$Sprite.flip_h = true
