@@ -260,7 +260,6 @@ position = Vector2( 292.187, -3.65688 )
 current = true
 
 [node name="Lava" type="Area2D" parent="Nivell"]
-visible = false
 position = Vector2( 1137.75, 91.1792 )
 collision_layer = 2
 script = ExtResource( 4 )
@@ -289,6 +288,7 @@ rect_rotation = -9.62756
 [node name="CanvasLayer" type="CanvasLayer" parent="Control"]
 
 [node name="Menu" parent="Control/CanvasLayer" instance=ExtResource( 7 )]
+visible = true
 margin_left = 490.0
 margin_top = 313.0
 margin_right = 490.0
