@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/DuckTales Music (NES) - The Moon Theme.ogg-fd384d210f528b4b88b5ecaebabc372f.oggstr"
+
+[deps]
+
+source_file="res://Musica/DuckTales Music (NES) - The Moon Theme.ogg"
+dest_files=[ "res://.import/DuckTales Music (NES) - The Moon Theme.ogg-fd384d210f528b4b88b5ecaebabc372f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

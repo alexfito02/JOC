@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Treball"
-run/main_scene="res://Escenes/Tilemaps.tscn"
+run/main_scene="res://Escenes/Pantalla inicial.tscn"
 config/icon="res://icon.png"
 
 [input]
