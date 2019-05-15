@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+﻿[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Escenes/Tilemaps.gd" type="Script" id=1]
 [ext_resource path="res://Kenney/Spritesheet/platformIndustrial_sheet.png" type="Texture" id=2]
