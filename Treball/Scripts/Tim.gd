@@ -5,7 +5,7 @@ var velocitat_salt = 600
 var velocitat = Vector2()
 var gravetat = Vector2(0,25)
 var salt = Vector2(0,-velocitat_salt)
-var animacio = 0
+var punts = 0
 var contador = 1
 func _physics_process(delta):
 	mou()
@@ -18,52 +18,50 @@ func _process(delta):
 func mou():
 	velocitat.x = 0
 	if velocitat.x == 0 and velocitat.y == 0 and is_on_floor():
-		animacio = 1000
+		punts = 1000
 	if Input.is_action_pressed("ui_right"):
 		velocitat.x = velocitatpocapoc
 		if abs(velocitat.y) > 1 and contador == 0:
-			animacio = 0
+			punts = 0
 		elif abs(velocitat.y) > 1 and contador == 1:
-			animacio = 5
+			punts = 5
 		elif abs(velocitat.y) < 1:
-			animacio = 10
+			punts = 10
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_shift"):
 		velocitat.x = velocitatmaxima
 		if abs(velocitat.y) > 1 and contador == 0:
-			animacio = 0
+			punts = 0
 		elif abs(velocitat.y) > 1 and contador == 1:
-			animacio = 5
+			punts = 5
 		elif abs(velocitat.y) < 1:
-			animacio = 20
+			punts = 20
 	if Input.is_action_pressed("ui_left"):
 		velocitat.x = -velocitatpocapoc
 		if abs(velocitat.y) > 1 and contador == 0:
-			animacio = 0
+			punts = 0
 		elif abs(velocitat.y) > 1 and contador == 1:
-			animacio = 5
+			punts = 5
 		elif abs(velocitat.y) < 1:
-			animacio = 10
+			punts = 10
 	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_shift"):
 		velocitat.x = -velocitatmaxima
 		if abs(velocitat.y) > 1 and contador == 0:
-			animacio = 0
+			punts = 0
 		elif abs(velocitat.y) > 1 and contador == 1:
-			animacio = 5
+			punts = 5
 		elif abs(velocitat.y) < 1:
-			animacio = 20
-	if Input.is_action_just_pressed("ui_up") and  abs(velocitat.y) < 1 and contador == 1 and is_on_floor():
+			punts = 20
+	if Input.is_action_just_pressed("ui_up") and  abs(velocitat.y) < 1 and contador == 1:
 		velocitat += salt
-		animacio = 0
+		punts = 0
 		contador = 0
 	if not is_on_floor():
 		velocitat += gravetat
 		if Input.is_action_just_pressed("ui_up") and contador == 0:
 			velocitat.y = 0
 			velocitat += salt
-			animacio = 5
+			punts = 5
 			contador = 1
-		elif not Input.is_action_just_pressed("ui_up") and contador == 0 and abs(velocitat.y) < 1:
-			contador = 1 
 	velocitat = move_and_slide(velocitat, Vector2(0,-1))
 	print(contador)
 func anima():
@@ -71,15 +69,15 @@ func anima():
 		$Sprite.flip_h = true
 	elif velocitat.x > 0:
 		$Sprite.flip_h = false
-	if animacio == 10:
+	if punts == 10:
 		$AnimationPlayer.play("Camina")
-	elif animacio == 20:
+	elif punts == 20:
 		$AnimationPlayer.play("Corre")
-	elif animacio == 1000:
+	elif punts == 1000:
 		$AnimationPlayer.play("Quiet")
-	elif animacio == 0 and abs(velocitat.y) > 1:
+	elif punts == 0 and abs(velocitat.y) > 1:
 		$AnimationPlayer.play("Salta")
-	elif animacio == 5:
+	elif punts == 5:
 		$AnimationPlayer.play("DobleSalt")
 		
 func mor():
