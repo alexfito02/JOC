@@ -5,8 +5,7 @@ var velocitat_salt = 600
 var velocitat = Vector2()
 var gravetat = Vector2(0,25)
 var salt = Vector2(0,-velocitat_salt)
-var animacio = 0
-var contador = 1
+var animacio = 1000
 func _physics_process(delta):
 	mou()
 	
@@ -17,53 +16,38 @@ func _process(delta):
 
 func mou():
 	velocitat.x = 0
-	if velocitat.x == 0 and velocitat.y == 0 and is_on_floor():
+	if velocitat.x == 0 and abs(velocitat.y) <= 1 and is_on_floor():
 		animacio = 1000
 	if Input.is_action_pressed("ui_right"):
 		velocitat.x = velocitatpocapoc
-		if abs(velocitat.y) > 1 and contador == 0:
+		if abs(velocitat.y) >= 1:
 			animacio = 0
-		elif abs(velocitat.y) > 1 and contador == 1:
-			animacio = 5
 		elif abs(velocitat.y) < 1:
 			animacio = 10
 	if Input.is_action_pressed("ui_right") and Input.is_action_pressed("ui_shift"):
 		velocitat.x = velocitatmaxima
-		if abs(velocitat.y) > 1 and contador == 0:
+		if abs(velocitat.y) >= 1:
 			animacio = 0
-		elif abs(velocitat.y) > 1 and contador == 1:
-			animacio = 5
 		elif abs(velocitat.y) < 1:
 			animacio = 20
 	if Input.is_action_pressed("ui_left"):
 		velocitat.x = -velocitatpocapoc
-		if abs(velocitat.y) > 1 and contador == 0:
+		if abs(velocitat.y) >= 1:
 			animacio = 0
-		elif abs(velocitat.y) > 1 and contador == 1:
-			animacio = 5
 		elif abs(velocitat.y) < 1:
 			animacio = 10
 	if Input.is_action_pressed("ui_left") and Input.is_action_pressed("ui_shift"):
 		velocitat.x = -velocitatmaxima
-		if abs(velocitat.y) > 1 and contador == 0:
+		if abs(velocitat.y) >= 1:
 			animacio = 0
-		elif abs(velocitat.y) > 1 and contador == 1:
-			animacio = 5
 		elif abs(velocitat.y) < 1:
 			animacio = 20
-	if Input.is_action_just_pressed("ui_up") and  abs(velocitat.y) < 1 and contador == 1:
+	if Input.is_action_just_pressed("ui_up") and abs(velocitat.y) <= 1:
 		velocitat += salt
 		animacio = 0
-		contador = 0
 	if not is_on_floor():
 		velocitat += gravetat
-		if Input.is_action_just_pressed("ui_up") and contador == 0:
-			velocitat.y = 0
-			velocitat += salt
-			animacio = 5
-			contador = 1
 	velocitat = move_and_slide(velocitat, Vector2(0,-1))
-	print(contador)
 func anima():
 	if velocitat.x < 0:
 		$Sprite.flip_h = true
@@ -77,9 +61,6 @@ func anima():
 		$AnimationPlayer.play("Quiet")
 	elif animacio == 0 and abs(velocitat.y) > 1:
 		$AnimationPlayer.play("Salta")
-	elif animacio == 5:
-		$AnimationPlayer.play("DobleSalt")
-		
 func mor():
 	queue_free()
 	get_tree().reload_current_scene()
