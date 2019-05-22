@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/bandera linia meta (quadrats negres i blancs.png-0cbd7c3f250bb123baca0fc8febd2040.stex"
+path="res://.import/bandera linia meta (quadrats negres i blancs.png-74061ec8a30fdcc26cd7b9699567e04f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imatges/imatges alex/bandera linia meta (quadrats negres i blancs.png"
-dest_files=[ "res://.import/bandera linia meta (quadrats negres i blancs.png-0cbd7c3f250bb123baca0fc8febd2040.stex" ]
+source_file="res://Escenes/bandera linia meta (quadrats negres i blancs.png"
+dest_files=[ "res://.import/bandera linia meta (quadrats negres i blancs.png-74061ec8a30fdcc26cd7b9699567e04f.stex" ]
 
 [params]
 
