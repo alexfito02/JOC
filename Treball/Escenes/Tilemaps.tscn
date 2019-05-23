@@ -1,7 +1,7 @@
 [gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Escenes/Tilemaps.gd" type="Script" id=1]
-[ext_resource path="res://Imatges/imatges alex/Fons.png" type="Texture" id=2]
+[ext_resource path="res://Imatges/imatges alex/FONS DEFINITIU.png" type="Texture" id=2]
 [ext_resource path="res://Kenney/Spritesheet/platformIndustrial_sheet.png" type="Texture" id=3]
 [ext_resource path="res://Escenes/PROTAGONISTA.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Escenes/Lava.gd" type="Script" id=5]
@@ -269,6 +269,7 @@ position = Vector2( 292.187, -3.65688 )
 current = true
 
 [node name="Lava" type="Area2D" parent="Nivell"]
+visible = false
 position = Vector2( 1137.75, 91.1792 )
 collision_layer = 2
 script = ExtResource( 5 )
@@ -278,6 +279,7 @@ position = Vector2( -469.657, 413.634 )
 rotation = 0.9135
 scale = Vector2( 16.5972, 10.7034 )
 frames = SubResource( 13 )
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nivell/Lava"]
