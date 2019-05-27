@@ -37,24 +37,6 @@ func _on_Area2D_area_entered(area): #Aquesta s'activa quan entren l'area de la f
 		$Enemic4.position = Vector2(-155,-130)
 		$Enemic4.moure = false
 
-
-func _on_Area2D_body_entered(body):
-	if not body == $Flor or not body == $StaticBody2D or not body == $Personatje/KinematicBody2D:
-		print("enemic dins flor")
-		vida_planta -= 25
-		if body == $Enemic1:
-			$Enemic1.position = Vector2(-155,-130)
-			$Enemic1.moure = false
-		if body == $Enemic2:
-			$Enemic2.position = Vector2(-155,-130)
-			$Enemic2.moure = false
-		if body == $Enemic3:
-			$Enemic3.position = Vector2(-155,-130)
-			$Enemic3.moure = false
-		if body == $Enemic4:
-			$Enemic4.position = Vector2(-155,-130)
-			$Enemic4.moure = false
-
 func barra_vida_planta():
 	if vida_planta == 100:
 		$Vida_planta/TextureProgress.value = 100
@@ -68,9 +50,31 @@ func barra_vida_planta():
 		$Vida_planta/TextureProgress.value = 0
 
 func _on_Area2D2_body_entered(body):
-	if body == $Enemic:
-		$Enemic.position = Vector2(-155,-130)
-		$Enemic.moure = false
+	if body == $Enemic1/enemic:
+		$Enemic1.position = Vector2(-155,-130)
+		$Enemic1.moure = false
+	if body == $Enemic2/enemic2:
+		$Enemic2.position = Vector2(-155,-130)
+		$Enemic2.moure = false
+	if body == $Enemic3/enemic3:
+		$Enemic3.position = Vector2(-155,-130)
+		$Enemic3.moure = false
+	if body == $Enemic4/enemic4:
+		$Enemic4.position = Vector2(-155,-130)
+		$Enemic4.moure = false
+
+
+func _on_Enemic1_body_entered(body):
+	if body == $Protagonista:
+		print("mort")
+
+
+func _on_Flor_body_entered(body):
+	print("enemic dins flor")
+	vida_planta -= 25
+	if body == $Enemic1:
+		$Enemic1.position = Vector2(-155,-130)
+		$Enemic1.moure = false
 	if body == $Enemic2:
 		$Enemic2.position = Vector2(-155,-130)
 		$Enemic2.moure = false
@@ -80,8 +84,3 @@ func _on_Area2D2_body_entered(body):
 	if body == $Enemic4:
 		$Enemic4.position = Vector2(-155,-130)
 		$Enemic4.moure = false
-
-
-func _on_Enemic1_body_entered(body):
-	if body == $Protagonista:
-		print("mort")

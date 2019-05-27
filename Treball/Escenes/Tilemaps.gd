@@ -22,20 +22,25 @@ func mostra_menu():
 
 
 func _on_Resume_pressed():
-	print("resume")
 	$Control/CanvasLayer/Menu.hide()
 	get_tree().paused = false
 
 func _on_Restart_pressed():
-	print("restart")
 	get_tree().reload_current_scene()
 	get_tree().paused = false
 
 func _on_Exit_pressed():
-		print("Exit")
+	get_tree().change_scene("res://Escenes/Pantalla inicial.tscn")
+	get_tree().paused = false
+	
 	
 	
 func menu_esc():
 	if Input.is_action_just_pressed("esc"):
 		mostra_menu()
+	
+
+
+func _on_Bandera_body_entered(body):
+	get_tree().change_scene("res://Escenes/Pantalla you win.tscn")
 	

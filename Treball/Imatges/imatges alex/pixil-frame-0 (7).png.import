@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fons menú.png-23c2d55a043730f6851414265aa3548b.stex"
+path="res://.import/pixil-frame-0 (7).png-c072a1224d703bdaf7d69f04d044321d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imatges/imatges alex/Fons menú.png"
-dest_files=[ "res://.import/Fons menú.png-23c2d55a043730f6851414265aa3548b.stex" ]
+source_file="res://Imatges/imatges alex/pixil-frame-0 (7).png"
+dest_files=[ "res://.import/pixil-frame-0 (7).png-c072a1224d703bdaf7d69f04d044321d.stex" ]
 
 [params]
 
