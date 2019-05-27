@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-frame-0 (6).png-9346ff064385e76cdf310ff78102a61b.stex"
+path="res://.import/pixil-frame-0 (7).png-c072a1224d703bdaf7d69f04d044321d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imatges/imatges alex/pixil-frame-0 (6).png"
-dest_files=[ "res://.import/pixil-frame-0 (6).png-9346ff064385e76cdf310ff78102a61b.stex" ]
+source_file="res://Imatges/imatges alex/pixil-frame-0 (7).png"
+dest_files=[ "res://.import/pixil-frame-0 (7).png-c072a1224d703bdaf7d69f04d044321d.stex" ]
 
 [params]
 

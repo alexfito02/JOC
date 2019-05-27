@@ -31,11 +31,16 @@ func _on_Restart_pressed():
 
 func _on_Exit_pressed():
 	get_tree().change_scene("res://Escenes/Pantalla inicial.tscn")
+	get_tree().paused = false
+	
 	
 	
 func menu_esc():
 	if Input.is_action_just_pressed("esc"):
 		mostra_menu()
 	
-func _on_Final_body_entered(body):
-	get_tree().change_scene("res://Escenes/Felicitació pasat nivell.tscn")
+
+
+func _on_Bandera_body_entered(body):
+	get_tree().change_scene("res://Escenes/Pantalla you win.tscn")
+	
