@@ -39,3 +39,8 @@ func menu_esc():
 	if Input.is_action_just_pressed("esc"):
 		mostra_menu()
 	
+
+
+func _on_Bandera_body_entered(body):
+	get_tree().change_scene("res://Escenes/Pantalla you win.tscn")
+	
