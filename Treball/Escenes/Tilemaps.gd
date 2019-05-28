@@ -30,7 +30,7 @@ func _on_Restart_pressed():
 	get_tree().paused = false
 
 func _on_Exit_pressed():
-	get_tree().change_scene("res://Escenes/Pantalla inicial.tscn")
+	get_tree().change_scene("res://Escenes/2a Pantalla inicial.tscn")
 	get_tree().paused = false
 	
 	
