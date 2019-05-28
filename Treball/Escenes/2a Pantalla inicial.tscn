@@ -5,6 +5,9 @@
 
 [node name="Node2D" type="Control"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Nivell Tilemaps" type="Button" parent="."]
 margin_left = 295.0
