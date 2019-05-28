@@ -14,4 +14,3 @@ func _ready():
 func _on_Start_pressed():
 	get_tree().paused = false
 	get_tree().change_scene("res://Escenes/2a pantalla inicial.tscn")
-	

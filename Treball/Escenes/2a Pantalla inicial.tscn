@@ -1,31 +1,19 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Escenes/Pantalla inicial.gd" type="Script" id=1]
-[ext_resource path="res://Imatges/imatges alex/pantalla d'inici.png" type="Texture" id=2]
-[ext_resource path="res://Imatges/imatges alex/press strat pantalla inici.png" type="Texture" id=3]
-[ext_resource path="res://Musica/DuckTales Music (NES) - The Moon Theme.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Scripts/2a pantalla inicial.gd" type="Script" id=1]
 
-[node name="Pantalla inicial" type="Control"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="Node2D" type="Control"]
 script = ExtResource( 1 )
 
-[node name="pantalla d'inici" type="Sprite" parent="."]
-position = Vector2( 512.685, 298.28 )
-scale = Vector2( 5.1337, 6.07505 )
-texture = ExtResource( 2 )
+[node name="Nivell Tilemaps" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -900, 530 )
 
-[node name="Start" type="TextureButton" parent="."]
-margin_left = 302.348
-margin_top = 300.91
-margin_right = 421.348
-margin_bottom = 321.91
-rect_scale = Vector2( 5, 5 )
-rect_pivot_offset = Vector2( 31, 9 )
-texture_normal = ExtResource( 3 )
+[node name="Nivell 2" type="TextureButton" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -900, 530 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )
-autoplay = true
-
-[connection signal="pressed" from="Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="Nivell Tilemaps" to="." method="_on_Nivell_Tilemaps_pressed"]
+[connection signal="pressed" from="Nivell 2" to="." method="_on_Nivell_2_pressed"]
