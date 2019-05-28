@@ -60,30 +60,30 @@ color_ramp = SubResource( 3 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 59.85, 29.2155 )
 
-[sub_resource type="Curve" id=13]
+[sub_resource type="Curve" id=10]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, 209.088 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=14]
-curve = SubResource( 13 )
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
 
-[sub_resource type="Gradient" id=15]
+[sub_resource type="Gradient" id=12]
 offsets = PoolRealArray( 0, 0.488889, 1 )
 colors = PoolColorArray( 0, 0, 0, 0.239216, 0.898039, 0, 1, 0.192157, 0.454902, 0, 1, 0.207843 )
 
-[sub_resource type="GradientTexture" id=16]
-gradient = SubResource( 15 )
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
 
-[sub_resource type="Curve" id=17]
+[sub_resource type="Curve" id=14]
 min_value = -200.0
 max_value = 200.0
 _data = [ Vector2( 0.0293848, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.96434, -35.2 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=18]
-curve = SubResource( 17 )
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 14 )
 
-[sub_resource type="ParticlesMaterial" id=12]
+[sub_resource type="ParticlesMaterial" id=16]
 emission_shape = 1
 emission_sphere_radius = 28.95
 flag_disable_z = true
@@ -91,14 +91,14 @@ gravity = Vector3( -20, -20, 0 )
 initial_velocity = 10.0
 angular_velocity = 100.0
 angular_velocity_random = 1.0
-angular_velocity_curve = SubResource( 14 )
+angular_velocity_curve = SubResource( 11 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-linear_accel_curve = SubResource( 18 )
+linear_accel_curve = SubResource( 15 )
 scale = 10.0
-color_ramp = SubResource( 16 )
+color_ramp = SubResource( 13 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=17]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ) ],
 "loop": true,
@@ -106,7 +106,7 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 1801.57, 10 )
 
 [node name="Nivell" type="Node2D"]
@@ -161,7 +161,6 @@ lifetime = 5.0
 process_material = SubResource( 8 )
 
 [node name="Enemic1" type="Area2D" parent="."]
-editor/display_folded = true
 collision_layer = 513
 collision_mask = 513
 
@@ -171,7 +170,6 @@ position = Vector2( -34.2133, -55.472 )
 shape = SubResource( 9 )
 
 [node name="enemic" type="KinematicBody2D" parent="Enemic1"]
-editor/display_folded = true
 position = Vector2( -34.3393, -55.7458 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -179,18 +177,20 @@ __meta__ = {
 }
 
 [node name="Particles2D" type="Particles2D" parent="Enemic1/enemic"]
+visible = false
 position = Vector2( 0.339298, 0.7458 )
 amount = 100
 lifetime = 2.0
-process_material = SubResource( 12 )
+process_material = SubResource( 16 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic1/enemic"]
 polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.4474, 21.6006, 18.065, 21.6006, -9.47695, 10.8233, -21.4517, -10.1326, -22.0505, -23.9035, -6.48326 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic1/enemic"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 10 )
+frames = SubResource( 17 )
 animation = "Enemic volador 1"
+frame = 3
 playing = true
 
 [node name="Enemic2" type="Area2D" parent="."]
@@ -215,9 +215,9 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic2/enemic2"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 10 )
+frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 7
+frame = 2
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic2/enemic2"]
@@ -243,9 +243,9 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic3/enemic3"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 10 )
+frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 7
+frame = 2
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic3/enemic3"]
@@ -281,9 +281,9 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic4/enemic4"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 10 )
+frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 7
+frame = 2
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic4/enemic4"]
@@ -298,7 +298,7 @@ collision_mask = 524288
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 25.3712, 530.825 )
-shape = SubResource( 11 )
+shape = SubResource( 18 )
 
 [node name="Player" parent="." instance=ExtResource( 15 )]
 position = Vector2( 355.737, 431.55 )
