@@ -1,6 +1,6 @@
 extends KinematicBody2D
-var velocitatpocapoc = 150
-var velocitatmaxima = 250
+var velocitatpocapoc = 250
+var velocitatmaxima = 400
 var velocitat_salt = 600
 var velocitat = Vector2()
 var gravetat = Vector2(0,25)

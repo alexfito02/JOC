@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-frame-0 (6).png-9346ff064385e76cdf310ff78102a61b.stex"
+path="res://.import/Menú nivells.png-9596dc8646dccdd0ca98b70d3c41a53d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imatges/imatges alex/pixil-frame-0 (6).png"
-dest_files=[ "res://.import/pixil-frame-0 (6).png-9346ff064385e76cdf310ff78102a61b.stex" ]
+source_file="res://Imatges/imatges alex/Menú nivells.png"
+dest_files=[ "res://.import/Menú nivells.png-9596dc8646dccdd0ca98b70d3c41a53d.stex" ]
 
 [params]
 

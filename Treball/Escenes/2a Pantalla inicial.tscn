@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/2a pantalla inicial.gd" type="Script" id=1]
+[ext_resource path="res://Imatges/imatges alex/Menú nivells.png" type="Texture" id=2]
+
+[node name="Node2D" type="Control"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Nivell Tilemaps" type="Button" parent="."]
+margin_left = 295.0
+margin_top = 271.0
+margin_right = 704.0
+margin_bottom = 325.0
+rect_pivot_offset = Vector2( -900, 530 )
+
+[node name="Nivell 2" type="Button" parent="."]
+margin_left = 301.0
+margin_top = 385.831
+margin_right = 714.0
+margin_bottom = 441.831
+rect_pivot_offset = Vector2( -900, 530 )
+
+[node name="Menú nivells" type="Sprite" parent="."]
+position = Vector2( 510.641, 296.874 )
+scale = Vector2( 10.1865, 6.04436 )
+texture = ExtResource( 2 )
+
+[connection signal="pressed" from="Nivell Tilemaps" to="." method="_on_Nivell_Tilemaps_pressed"]
+[connection signal="pressed" from="Nivell 2" to="." method="_on_Nivell_2_pressed"]

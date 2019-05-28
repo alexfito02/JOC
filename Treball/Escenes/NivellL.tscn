@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Escenes/NivellL.gd" type="Script" id=1]
 [ext_resource path="res://Imatges/Imatges Miguel/Fons.jpg" type="Texture" id=2]
@@ -14,7 +14,7 @@
 [ext_resource path="res://Escenes/Enemic2_Miguel.gd" type="Script" id=12]
 [ext_resource path="res://Escenes/Enemic3_Miguel.gd" type="Script" id=13]
 [ext_resource path="res://Escenes/Enemic4_Miguel.gd" type="Script" id=14]
-[ext_resource path="res://Scripts/Personatje_M.gd" type="Script" id=15]
+[ext_resource path="res://Escenes/PROTAGONISTA.tscn" type="PackedScene" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -60,7 +60,45 @@ color_ramp = SubResource( 3 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 59.85, 29.2155 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="Curve" id=10]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 209.088 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="Gradient" id=12]
+offsets = PoolRealArray( 0, 0.488889, 1 )
+colors = PoolColorArray( 0, 0, 0, 0.239216, 0.898039, 0, 1, 0.192157, 0.454902, 0, 1, 0.207843 )
+
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
+
+[sub_resource type="Curve" id=14]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0.0293848, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.96434, -35.2 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 14 )
+
+[sub_resource type="ParticlesMaterial" id=16]
+emission_shape = 1
+emission_sphere_radius = 28.95
+flag_disable_z = true
+gravity = Vector3( -20, -20, 0 )
+initial_velocity = 10.0
+angular_velocity = 100.0
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 11 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel_curve = SubResource( 15 )
+scale = 10.0
+color_ramp = SubResource( 13 )
+
+[sub_resource type="SpriteFrames" id=17]
 animations = [ {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ) ],
 "loop": true,
@@ -68,8 +106,8 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 469.085, 10 )
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 1801.57, 10 )
 
 [node name="Nivell" type="Node2D"]
 script = ExtResource( 1 )
@@ -123,66 +161,76 @@ lifetime = 5.0
 process_material = SubResource( 8 )
 
 [node name="Enemic1" type="Area2D" parent="."]
-editor/display_folded = true
+collision_layer = 513
+collision_mask = 513
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemic1"]
 light_mask = 512
 position = Vector2( -34.2133, -55.472 )
 shape = SubResource( 9 )
 
-[node name="Enemic" type="KinematicBody2D" parent="Enemic1"]
-editor/display_folded = true
+[node name="enemic" type="KinematicBody2D" parent="Enemic1"]
 position = Vector2( -34.3393, -55.7458 )
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic1/Enemic"]
+[node name="Particles2D" type="Particles2D" parent="Enemic1/enemic"]
+visible = false
+position = Vector2( 0.339298, 0.7458 )
+amount = 100
+lifetime = 2.0
+process_material = SubResource( 16 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic1/enemic"]
 polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.4474, 21.6006, 18.065, 21.6006, -9.47695, 10.8233, -21.4517, -10.1326, -22.0505, -23.9035, -6.48326 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic1/Enemic"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic1/enemic"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 10 )
+frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 4
+frame = 3
 playing = true
 
 [node name="Enemic2" type="Area2D" parent="."]
 editor/display_folded = true
+collision_layer = 513
+collision_mask = 513
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemic2"]
 light_mask = 512
 position = Vector2( -107.244, 465.768 )
 shape = SubResource( 9 )
 
-[node name="Enemic2" type="KinematicBody2D" parent="Enemic2"]
-editor/display_folded = true
+[node name="enemic2" type="KinematicBody2D" parent="Enemic2"]
 position = Vector2( 1122.99, -69.9261 )
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic2/Enemic2"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic2/enemic2"]
 polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.4474, 21.6006, 18.065, 21.6006, -9.47695, 10.8233, -21.4517, -10.1326, -22.0505, -23.9035, -6.48326 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic2/Enemic2"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic2/enemic2"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 10 )
+frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 3
+frame = 2
 playing = true
 
-[node name="Timer" type="Timer" parent="Enemic2/Enemic2"]
+[node name="Timer" type="Timer" parent="Enemic2/enemic2"]
 wait_time = 5.0
 one_shot = true
 autostart = true
 
 [node name="Enemic3" type="Area2D" parent="."]
 editor/display_folded = true
+collision_layer = 513
+collision_mask = 513
 
-[node name="Enemic3" type="KinematicBody2D" parent="Enemic3"]
+[node name="enemic3" type="KinematicBody2D" parent="Enemic3"]
 editor/display_folded = true
 position = Vector2( 1162.28, 485.013 )
 script = ExtResource( 13 )
@@ -190,17 +238,17 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic3/Enemic3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic3/enemic3"]
 polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.4474, 21.6006, 18.065, 21.6006, -9.47695, 10.8233, -21.4517, -10.1326, -22.0505, -23.9035, -6.48326 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic3/Enemic3"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic3/enemic3"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 10 )
+frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 3
+frame = 2
 playing = true
 
-[node name="Timer" type="Timer" parent="Enemic3/Enemic3"]
+[node name="Timer" type="Timer" parent="Enemic3/enemic3"]
 wait_time = 10.0
 one_shot = true
 autostart = true
@@ -212,13 +260,15 @@ shape = SubResource( 9 )
 
 [node name="Enemic4" type="Area2D" parent="."]
 editor/display_folded = true
+collision_layer = 513
+collision_mask = 513
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Enemic4"]
 light_mask = 512
 position = Vector2( 1122.83, -68.3598 )
 shape = SubResource( 9 )
 
-[node name="Enemic4" type="KinematicBody2D" parent="Enemic4"]
+[node name="enemic4" type="KinematicBody2D" parent="Enemic4"]
 editor/display_folded = true
 position = Vector2( -108.434, 465.369 )
 script = ExtResource( 14 )
@@ -226,42 +276,36 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic4/Enemic4"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic4/enemic4"]
 polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.4474, 21.6006, 18.065, 21.6006, -9.47695, 10.8233, -21.4517, -10.1326, -22.0505, -23.9035, -6.48326 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic4/Enemic4"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic4/enemic4"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 10 )
+frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 3
+frame = 2
 playing = true
 
-[node name="Timer" type="Timer" parent="Enemic4/Enemic4"]
+[node name="Timer" type="Timer" parent="Enemic4/enemic4"]
 wait_time = 15.0
 one_shot = true
 autostart = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 light_mask = 512
+collision_layer = 524288
+collision_mask = 524288
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 25.3712, 530.825 )
-shape = SubResource( 11 )
+shape = SubResource( 18 )
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-light_mask = 512
+[node name="Player" parent="." instance=ExtResource( 15 )]
+position = Vector2( 355.737, 431.55 )
+collision_layer = 524800
+collision_mask = 524800
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2( 1002.78, 529.11 )
-shape = SubResource( 11 )
-
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
-script = ExtResource( 15 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KinematicBody2D"]
-
-[connection signal="body_entered" from="Flor" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="Enemic1" to="." method="_on_Enemic1_body_entered"]
-[connection signal="timeout" from="Enemic2/Enemic2/Timer" to="Enemic2/Enemic2" method="_on_Timer_timeout"]
-[connection signal="timeout" from="Enemic3/Enemic3/Timer" to="Enemic3/Enemic3" method="_on_Timer_timeout"]
-[connection signal="timeout" from="Enemic4/Enemic4/Timer" to="Enemic4/Enemic4" method="_on_Timer_timeout"]
+[connection signal="body_entered" from="Flor" to="." method="_on_Flor_body_entered"]
+[connection signal="timeout" from="Enemic2/enemic2/Timer" to="Enemic2/enemic2" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Enemic3/enemic3/Timer" to="Enemic3/enemic3" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Enemic4/enemic4/Timer" to="Enemic4/enemic4" method="_on_Timer_timeout"]

@@ -11,6 +11,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func _on_Start_pressed():
-	get_tree().paused = false
-	get_tree().change_scene("res://Escenes/2a pantalla inicial.tscn")
+
+
+func _on_Nivell_Tilemaps_pressed():
+	print("Nivell Tilemaps")
+	get_tree().change_scene("res://Escenes/Tilemaps.tscn")
+	
+
+
+func _on_Nivell_2_pressed():
+	print("Nivell 2")
+	get_tree().change_scene("res://Escenes/NivellL.tscn")

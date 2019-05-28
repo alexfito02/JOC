@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Fons menú.png-23c2d55a043730f6851414265aa3548b.stex"
+path="res://.import/FONS DEFINITIU.png-5da1c56effd1c3c8109290910360b6e5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Imatges/imatges alex/Fons menú.png"
-dest_files=[ "res://.import/Fons menú.png-23c2d55a043730f6851414265aa3548b.stex" ]
+source_file="res://Imatges/FONS DEFINITIU.png"
+dest_files=[ "res://.import/FONS DEFINITIU.png-5da1c56effd1c3c8109290910360b6e5.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
