@@ -161,8 +161,8 @@ lifetime = 5.0
 process_material = SubResource( 8 )
 
 [node name="Enemic1" type="Area2D" parent="."]
-collision_layer = 513
-collision_mask = 513
+collision_layer = 512
+collision_mask = 512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemic1"]
 light_mask = 512
@@ -177,7 +177,6 @@ __meta__ = {
 }
 
 [node name="Particles2D" type="Particles2D" parent="Enemic1/enemic"]
-visible = false
 position = Vector2( 0.339298, 0.7458 )
 amount = 100
 lifetime = 2.0
@@ -190,7 +189,7 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 3
+frame = 7
 playing = true
 
 [node name="Enemic2" type="Area2D" parent="."]
@@ -217,7 +216,7 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 2
+frame = 6
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic2/enemic2"]
@@ -245,7 +244,7 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 2
+frame = 6
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic3/enemic3"]
@@ -283,7 +282,7 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 2
+frame = 6
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic4/enemic4"]
@@ -306,6 +305,7 @@ collision_layer = 524800
 collision_mask = 524800
 
 [connection signal="body_entered" from="Flor" to="." method="_on_Flor_body_entered"]
+[connection signal="body_entered" from="Enemic1" to="." method="_on_Enemic1_body_entered"]
 [connection signal="timeout" from="Enemic2/enemic2/Timer" to="Enemic2/enemic2" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Enemic3/enemic3/Timer" to="Enemic3/enemic3" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Enemic4/enemic4/Timer" to="Enemic4/enemic4" method="_on_Timer_timeout"]

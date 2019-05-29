@@ -4,7 +4,8 @@ var vida_planta = 100
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+func num_random(): #Quan crides aquesta funció et dona un numero aleatori
+	pass
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Fons/CenterContainer/Label.visible = false
@@ -35,8 +36,7 @@ func barra_vida_planta():
 
 
 func _on_Enemic1_body_entered(body):
-	if body == $Protagonista:
-		print("mort")
+	$Enemic1.queue_free()
 
 
 func _on_Flor_body_entered(body):
