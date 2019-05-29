@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Escenes/Tilemaps.gd" type="Script" id=1]
 [ext_resource path="res://Imatges/FONS DEFINITIU.png" type="Texture" id=2]
@@ -45,7 +45,16 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 [sub_resource type="ConvexPolygonShape2D" id=11]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 
-[sub_resource type="TileSet" id=12]
+[sub_resource type="ConvexPolygonShape2D" id=12]
+points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
+
+[sub_resource type="TileSet" id=15]
 resource_local_to_scene = true
 0/name = "platformIndustrial_sheet.png 0"
 0/texture = ExtResource( 3 )
@@ -58,7 +67,7 @@ resource_local_to_scene = true
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
-"one_way_margin": 1.0,
+"one_way_margin": 0.0,
 "shape": SubResource( 1 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
@@ -91,7 +100,7 @@ resource_local_to_scene = true
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 4 ),
+"shape": SubResource( 7 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
@@ -107,7 +116,7 @@ resource_local_to_scene = true
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 5 ),
+"shape": SubResource( 8 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
@@ -123,7 +132,7 @@ resource_local_to_scene = true
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 6 ),
+"shape": SubResource( 9 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 4/z_index = 0
@@ -139,7 +148,7 @@ resource_local_to_scene = true
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 7 ),
+"shape": SubResource( 10 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
@@ -155,7 +164,7 @@ resource_local_to_scene = true
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 8 ),
+"shape": SubResource( 11 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 6/z_index = 0
@@ -171,7 +180,7 @@ resource_local_to_scene = true
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 9 ),
+"shape": SubResource( 12 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 7/z_index = 0
@@ -187,7 +196,7 @@ resource_local_to_scene = true
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 10 ),
+"shape": SubResource( 13 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 8/z_index = 0
@@ -203,7 +212,7 @@ resource_local_to_scene = true
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
-"shape": SubResource( 11 ),
+"shape": SubResource( 14 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 9/z_index = 0
@@ -223,8 +232,56 @@ resource_local_to_scene = true
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 10/z_index = 0
+11/name = "platformIndustrial_sheet.png 11"
+11/texture = ExtResource( 3 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 280, 434, 70, 70 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+11/z_index = 0
+12/name = "platformIndustrial_sheet.png 12"
+12/texture = ExtResource( 3 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 140, 259, 70, 70 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+12/z_index = 0
+13/name = "platformIndustrial_sheet.png 13"
+13/texture = ExtResource( 3 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 0, 400, 70, 70 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+13/z_index = 0
 
-[sub_resource type="SpriteFrames" id=13]
+[sub_resource type="SpriteFrames" id=16]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
@@ -237,10 +294,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 318.692, 823.575 )
 
-[sub_resource type="CapsuleShape2D" id=15]
+[sub_resource type="CapsuleShape2D" id=18]
 radius = 133.082
 height = 187.924
 
@@ -259,11 +316,11 @@ region_rect = Rect2( -68, -23, 1726, 136 )
 
 [node name="Terreny" type="TileMap" parent="Nivell"]
 position = Vector2( 3, 0.000481323 )
-tile_set = SubResource( 12 )
+tile_set = SubResource( 15 )
 cell_size = Vector2( 70, 70 )
 collision_layer = 4
 format = 1
-tile_data = PoolIntArray( 393238, 1610612746, 0, 458771, 1610612746, 0, 458831, 1610612746, 0, 458833, 1610612746, 0, 458835, 1610612746, 0, 458837, 1610612746, 0, 458839, 1610612746, 0, 524302, 1610612744, 0, 524303, 1610612746, 0, 524304, 1073741832, 0, 524313, 1610612746, 0, 524315, 1610612744, 0, 524316, 1610612746, 0, 524317, 1073741832, 0, 524322, 1610612746, 0, 524356, 1073741834, 0, 524359, 1073741834, 0, 524362, 1073741834, 0, 524366, 1610612746, 0, 524368, 1610612746, 0, 524370, 1610612746, 0, 524372, 1610612746, 0, 524374, 1610612746, 0, 524377, 1610612744, 0, 524378, 1610612746, 0, 524379, 1610612746, 0, 524380, 1610612746, 0, 524381, 1073741832, 0, 524383, 536870920, 0, 524384, 536870922, 0, 524385, 536870922, 0, 524386, 536870922, 0, 524387, 536870922, 0, 524388, 8, 0, 524391, 1610612744, 0, 524392, 1073741832, 0, 524395, 1610612744, 0, 524396, 1610612746, 0, 524397, 1073741832, 0, 524399, 1610612744, 0, 524400, 1073741832, 0, 524500, 1610612746, 0, 524501, 1610612746, 0, 524502, 1610612746, 0, 524503, 1610612746, 0, 524504, 1610612746, 0, 589879, 1073741834, 0, 589919, -536870902, 0, 655401, 1610612746, 0, 655409, 1610612744, 0, 655410, 1610612746, 0, 655411, 1073741832, 0, 655424, 1073741834, 0, 655455, -536870902, 0, 720934, 1610612746, 0, 720940, 1610612744, 0, 720941, 1610612746, 0, 720942, 1073741832, 0, 720957, 536870920, 0, 720958, 1073741832, 0, 720991, -536870902, 0, 786489, 1073741834, 0 )
+tile_data = PoolIntArray( 393238, 536870925, 0, 458771, 536870925, 0, 458831, 536870925, 0, 458833, 536870925, 0, 458835, 536870925, 0, 458837, 536870925, 0, 458839, 536870925, 0, 524302, 536870923, 0, 524303, 12, 0, 524304, 11, 0, 524313, 536870925, 0, 524315, 536870923, 0, 524316, 12, 0, 524317, 11, 0, 524322, 536870925, 0, 524359, 536870925, 0, 524362, 536870925, 0, 524366, 536870925, 0, 524368, 536870925, 0, 524370, 536870925, 0, 524372, 536870925, 0, 524374, 536870925, 0, 524377, 536870923, 0, 524378, 536870924, 0, 524379, 536870924, 0, 524380, 536870924, 0, 524381, 11, 0, 524383, 536870923, 0, 524384, 536870924, 0, 524385, 536870924, 0, 524386, 536870924, 0, 524387, 536870924, 0, 524388, 11, 0, 524391, 536870923, 0, 524392, 11, 0, 524395, 536870923, 0, 524396, 12, 0, 524397, 11, 0, 524399, 536870923, 0, 524400, 11, 0, 524500, 1610612746, 0, 524501, 1610612746, 0, 524502, 1610612746, 0, 524503, 1610612746, 0, 524504, 1610612746, 0, 589879, 536870925, 0, 589892, 536870925, 0, 655409, 536870923, 0, 655410, 12, 0, 655411, 11, 0, 655424, 536870925, 0, 720934, 536870925, 0, 720938, 13, 0, 720940, 536870923, 0, 720941, 12, 0, 720942, 11, 0, 720958, 536870923, 0, 720959, 11, 0, 786489, 536870925, 0 )
 
 [node name="Jugador" parent="Nivell" instance=ExtResource( 4 )]
 position = Vector2( 1087.82, 436.794 )
@@ -281,16 +338,16 @@ collision_layer = 2
 script = ExtResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Nivell/Lava"]
-position = Vector2( -837.609, 473.909 )
+position = Vector2( -345.683, 457.487 )
 rotation = 14.0499
 scale = Vector2( 16.5972, 5.32408 )
-frames = SubResource( 13 )
+frames = SubResource( 16 )
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nivell/Lava"]
-position = Vector2( -1046.68, 506.76 )
+position = Vector2( -549.028, 489.839 )
 rotation = 12.4791
-shape = SubResource( 14 )
+shape = SubResource( 17 )
 
 [node name="Control" type="Control" parent="."]
 visible = false
@@ -334,7 +391,7 @@ texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bandera"]
 position = Vector2( 264.54, -557.78 )
-shape = SubResource( 15 )
+shape = SubResource( 18 )
 
 [connection signal="body_entered" from="Nivell/Lava" to="Nivell/Jugador" method="_on_Area2D_body_entered"]
 [connection signal="pressed" from="Control/CanvasLayer/Menu/VSplitContainer/Resume" to="." method="_on_Resume_pressed"]
