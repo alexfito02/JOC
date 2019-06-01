@@ -189,7 +189,7 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 7
+frame = 1
 playing = true
 
 [node name="Enemic2" type="Area2D" parent="."]
@@ -216,7 +216,6 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 6
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic2/enemic2"]
@@ -244,7 +243,6 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 6
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic3/enemic3"]
@@ -282,7 +280,6 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 17 )
 animation = "Enemic volador 1"
-frame = 6
 playing = true
 
 [node name="Timer" type="Timer" parent="Enemic4/enemic4"]
@@ -303,7 +300,6 @@ shape = SubResource( 18 )
 position = Vector2( 355.737, 431.55 )
 collision_layer = 524800
 collision_mask = 524800
-
 [connection signal="body_entered" from="Flor" to="." method="_on_Flor_body_entered"]
 [connection signal="body_entered" from="Enemic1" to="." method="_on_Enemic1_body_entered"]
 [connection signal="timeout" from="Enemic2/enemic2/Timer" to="Enemic2/enemic2" method="_on_Timer_timeout"]
