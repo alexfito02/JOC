@@ -1,22 +1,14 @@
 extends Node2D
 var vida_planta = 100
-var numero = 0
-var nums_usats = []
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-func num_random(primer, segon): #Quan crides aquesta funció et dona un numero aleatori
-	numero = randi()%(segon+1)+(primer) #Cal que el primer numero sigui el petit i el segon el gran
-	nums_usats.append(numero)
-	print(numero)
-	print(nums_usats)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Fons/CenterContainer/Label.visible = false
 	print("comança")
 
 func _process(delta):
-	num_random(1,10)
 	barra_vida_planta()
 	if vida_planta == 0:
 		print("hola")
