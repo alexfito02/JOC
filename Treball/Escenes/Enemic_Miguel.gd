@@ -15,4 +15,4 @@ func _physics_process(delta):
 func mou():
 	direccio = planta_pos - position
 	direccio.normalized()
-	move_and_slide(direccio)
+	move_and_slide(direccio, Vector2(0.5, 0.5))

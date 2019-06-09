@@ -23,10 +23,8 @@ func _process(delta):
 	if vida_planta == 0:
 		print("hola")
 		$Fons/CenterContainer/Label.visible = true
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+	if morts == 10:
+		get_tree().change_scene("res://Escenes/Pantalla you win.tscn")
 
 func crea_llista_posicions(llista):
 	for numero in llista_nums_random:
@@ -57,17 +55,17 @@ func barra_vida_planta():
 		$Vida_planta/TextureProgress.value = 0
 
 func genera_llista(): #Quan crides aquesta funció et dona un numero aleatori
-	while len(llista_nums_random)<6:
+	while len(llista_nums_random)<11:
 		llista_nums_random.append(randi()%(6)+(1))
 		print(llista_nums_random)
-		
-func _on_Enemic1_body_entered(body):
-	print("tocat")
-	$Enemic1.queue_free()
 
 
 func _on_Flor_body_entered(body):
 	print("enemic dins flor")
 	vida_planta -= 25
+	morts = morts + 1
+	$Enemic1.position = llista_posicions[0 + morts]
+
+func _on_Area_mor_body_entered(body):
 	morts = morts + 1
 	$Enemic1.position = llista_posicions[0 + morts]

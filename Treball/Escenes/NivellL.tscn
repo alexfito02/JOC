@@ -19,30 +19,30 @@ outline_size = 10
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[sub_resource type="Curve" id=3]
+[sub_resource type="Curve" id=2]
 min_value = -360.0
 max_value = 360.0
 _data = [ Vector2( 0, 209.088 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=4]
-curve = SubResource( 3 )
+[sub_resource type="CurveTexture" id=3]
+curve = SubResource( 2 )
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=4]
 offsets = PoolRealArray( 0, 0.488889, 1 )
 colors = PoolColorArray( 0, 0, 0, 0.239216, 0.898039, 0, 1, 0.192157, 0.454902, 0, 1, 0.207843 )
 
-[sub_resource type="GradientTexture" id=6]
-gradient = SubResource( 5 )
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
 
-[sub_resource type="Curve" id=7]
+[sub_resource type="Curve" id=6]
 min_value = -200.0
 max_value = 200.0
 _data = [ Vector2( 0.0293848, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.96434, -35.2 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=8]
-curve = SubResource( 7 )
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
 
-[sub_resource type="ParticlesMaterial" id=9]
+[sub_resource type="ParticlesMaterial" id=8]
 emission_shape = 1
 emission_sphere_radius = 28.95
 flag_disable_z = true
@@ -50,14 +50,14 @@ gravity = Vector3( -20, -20, 0 )
 initial_velocity = 10.0
 angular_velocity = 100.0
 angular_velocity_random = 1.0
-angular_velocity_curve = SubResource( 4 )
+angular_velocity_curve = SubResource( 3 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-linear_accel_curve = SubResource( 8 )
+linear_accel_curve = SubResource( 7 )
 scale = 10.0
-color_ramp = SubResource( 6 )
+color_ramp = SubResource( 5 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ) ],
 "loop": true,
@@ -65,7 +65,7 @@ animations = [ {
 "speed": 15.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 59.85, 29.2155 )
 
 [sub_resource type="Gradient" id=11]
@@ -148,16 +148,15 @@ __meta__ = {
 position = Vector2( 0.339298, 0.7458 )
 amount = 100
 lifetime = 2.0
-process_material = SubResource( 9 )
+process_material = SubResource( 8 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic1"]
 polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.4474, 21.6006, 18.065, 21.6006, -9.47695, 10.8233, -21.4517, -10.1326, -22.0505, -23.9035, -6.48326 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic1"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 10 )
+frames = SubResource( 9 )
 animation = "Enemic volador 1"
-frame = 5
 playing = true
 
 [node name="Area_mor" type="Area2D" parent="Enemic1"]
@@ -169,7 +168,7 @@ collision_mask = 262656
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemic1/Area_mor"]
 light_mask = 512
 position = Vector2( -34.2133, -55.472 )
-shape = SubResource( 2 )
+shape = SubResource( 10 )
 
 [node name="Flor" type="Area2D" parent="."]
 editor/display_folded = true
@@ -206,4 +205,5 @@ position = Vector2( 355.737, 431.55 )
 collision_layer = 786944
 collision_mask = 786944
 
+[connection signal="body_entered" from="Enemic1/Area_mor" to="." method="_on_Area_mor_body_entered"]
 [connection signal="body_entered" from="Flor" to="." method="_on_Flor_body_entered"]
