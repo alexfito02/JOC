@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/2a pantalla inicial.gd" type="Script" id=1]
 [ext_resource path="res://Imatges/imatges alex/Menú nivells.png" type="Texture" id=2]
+[ext_resource path="res://Musica/DuckTales Music (NES) - The Moon Theme.ogg" type="AudioStream" id=3]
 
 [node name="Node2D" type="Control"]
 script = ExtResource( 1 )
@@ -27,6 +28,10 @@ rect_pivot_offset = Vector2( -900, 530 )
 position = Vector2( 510.641, 296.874 )
 scale = Vector2( 10.1865, 6.04436 )
 texture = ExtResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
 
 [connection signal="pressed" from="Nivell Tilemaps" to="." method="_on_Nivell_Tilemaps_pressed"]
 [connection signal="pressed" from="Nivell 2" to="." method="_on_Nivell_2_pressed"]
