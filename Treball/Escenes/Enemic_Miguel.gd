@@ -3,6 +3,8 @@ var velocitat = Vector2()
 var velocitat_max = 1.5
 var moure = true
 var llista_posicions = []
+var planta_pos = Vector2(557,434)
+var direccio = Vector2()
 
 var posicio_1 = Vector2(0,0) #Superior dreta
 var posicio_2 = Vector2(-31,498)
@@ -13,7 +15,7 @@ var posicio_6 = Vector2(-29,320)
 
 func genera_llista(): #Quan crides aquesta funció et dona un numero aleatori
 	while len(llista_posicions)<6:
-		llista_posicions.append(randi()%(7)+(1))
+		llista_posicions.append(randi()%(6)+(1))
 		print(llista_posicions)
 
 func _ready():
@@ -40,7 +42,9 @@ func mou():
 			pass
 		if llista_posicions[0] == 6:
 			pass
-		move_and_slide(Vector2(357,334),Vector2(0.01,0.01))
+		direccio = planta_pos - posicio_1
+		direccio.normalized()
+		move_and_slide(direccio)
 
 	#velocitat.x = 1
 	#velocitat.y = 1

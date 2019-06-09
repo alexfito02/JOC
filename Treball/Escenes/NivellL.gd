@@ -33,6 +33,7 @@ func barra_vida_planta():
 
 
 func _on_Enemic1_body_entered(body):
+	print("tocat")
 	$Enemic1.queue_free()
 
 

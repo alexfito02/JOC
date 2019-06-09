@@ -57,8 +57,8 @@ animations = [ {
 } ]
 
 [node name="Enemic1" type="Area2D"]
-collision_layer = 512
-collision_mask = 512
+collision_layer = 262656
+collision_mask = 262656
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 light_mask = 512
@@ -85,6 +85,6 @@ polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.447
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 9 )
 animation = "Enemic volador 1"
-frame = 4
+frame = 6
 playing = true
 
