@@ -12,8 +12,8 @@ var posicio_5 = Vector2(1131,339)
 var posicio_6 = Vector2(-29,320)
 
 func _ready():
+	print("start")
 	$Fons/CenterContainer/Label.visible = false
-	print("comança")
 	genera_llista()
 	crea_llista_posicions(llista_nums_random)
 	position = llista_posicions[0]
@@ -57,7 +57,7 @@ func barra_vida_planta():
 		$Vida_planta/TextureProgress.value = 0
 
 func genera_llista(): #Quan crides aquesta funció et dona un numero aleatori
-	while len(llista_posicions)<6:
+	while len(llista_nums_random)<6:
 		llista_nums_random.append(randi()%(6)+(1))
 		print(llista_nums_random)
 		
