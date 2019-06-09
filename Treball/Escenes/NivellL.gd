@@ -1,12 +1,22 @@
 extends Node2D
 var vida_planta = 100
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-# Called when the node enters the scene tree for the first time.
+var llista_nums_random = []
+var llista_posicions = []
+var morts = 0
+
+var posicio_1 = Vector2(0,0) #Superior dreta
+var posicio_2 = Vector2(-31,498)
+var posicio_3 = Vector2(1130,41)
+var posicio_4 = Vector2(1127,522)
+var posicio_5 = Vector2(1131,339)
+var posicio_6 = Vector2(-29,320)
+
 func _ready():
 	$Fons/CenterContainer/Label.visible = false
 	print("comança")
+	genera_llista()
+	crea_llista_posicions(llista_nums_random)
+	position = llista_posicions[0]
 
 func _process(delta):
 	barra_vida_planta()
@@ -18,6 +28,21 @@ func _process(delta):
 #func _process(delta):
 #	pass
 
+func crea_llista_posicions(llista):
+	for numero in llista_nums_random:
+		if numero == 1:
+			llista_posicions.append(posicio_1)
+		if numero == 2:
+			llista_posicions.append(posicio_2)
+		if numero == 3:
+			llista_posicions.append(posicio_3)
+		if numero == 4:
+			llista_posicions.append(posicio_4)
+		if numero == 5:
+			llista_posicions.append(posicio_5)
+		if numero == 6:
+			llista_posicions.append(posicio_6)
+	print(llista_posicions)
 
 func barra_vida_planta():
 	if vida_planta == 100:
@@ -31,7 +56,11 @@ func barra_vida_planta():
 	if vida_planta == 0:
 		$Vida_planta/TextureProgress.value = 0
 
-
+func genera_llista(): #Quan crides aquesta funció et dona un numero aleatori
+	while len(llista_posicions)<6:
+		llista_nums_random.append(randi()%(6)+(1))
+		print(llista_nums_random)
+		
 func _on_Enemic1_body_entered(body):
 	print("tocat")
 	$Enemic1.queue_free()
@@ -40,11 +69,5 @@ func _on_Enemic1_body_entered(body):
 func _on_Flor_body_entered(body):
 	print("enemic dins flor")
 	vida_planta -= 25
-	if body == $Enemic1/enemic:
-		$Enemic1.queue_free()
-	if body == $Enemic2/enemic2:
-		$Enemic2.queue_free()
-	if body == $Enemic3/enemic3:
-		$Enemic3.queue_free()
-	if body == $Enemic4/enemic4:
-		$Enemic4.queue_free()
+	morts = morts + 1
+	$Enemic1.position = llista_posicions[0 + morts]
