@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.ogg-89dea821c4cdb93fae58c59f9d462d07.oggstr"
+
+[deps]
+
+source_file="res://Musica/Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.ogg"
+dest_files=[ "res://.import/Legend Of Zelda Theme (8 Bit Remix Cover Version) [Tribute to NES] - 8 Bit Universe.ogg-89dea821c4cdb93fae58c59f9d462d07.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
