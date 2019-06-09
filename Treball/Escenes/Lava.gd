@@ -1,6 +1,6 @@
 extends Area2D
 
-var velocitat = Vector2(5,0)
+var velocitat = Vector2(3.8,0)
 
 func _process(delta):
 	mou_lava()
