@@ -16,7 +16,7 @@ func _ready():
 	$Fons/CenterContainer/Label.visible = false
 	genera_llista()
 	crea_llista_posicions(llista_nums_random)
-	position = llista_posicions[0]
+	$Enemic1.position = llista_posicions[0]
 
 func _process(delta):
 	barra_vida_planta()

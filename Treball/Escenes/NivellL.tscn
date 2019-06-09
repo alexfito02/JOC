@@ -1,27 +1,23 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Escenes/NivellL.gd" type="Script" id=1]
 [ext_resource path="res://Imatges/Imatges Miguel/Fons.jpg" type="Texture" id=2]
 [ext_resource path="res://Imatges/Imatges Miguel/gomarice_game_music_love.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Escenes/VidaPlanta.tscn" type="PackedScene" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
-[ext_resource path="res://Escenes/Enemic_Miguel.gd" type="Script" id=6]
-[ext_resource path="res://Kenney/PNG/Enemies/wingMan1.png" type="Texture" id=7]
-[ext_resource path="res://Kenney/PNG/Enemies/wingMan2.png" type="Texture" id=8]
-[ext_resource path="res://Kenney/PNG/Enemies/wingMan3.png" type="Texture" id=9]
-[ext_resource path="res://Kenney/PNG/Enemies/wingMan4.png" type="Texture" id=10]
-[ext_resource path="res://Kenney/PNG/Enemies/wingMan5.png" type="Texture" id=11]
-[ext_resource path="res://Imatges/Imatges Miguel/planta.png" type="Texture" id=12]
-[ext_resource path="res://Escenes/PROTAGONISTA.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Escenes/Enemic_Miguel.gd" type="Script" id=5]
+[ext_resource path="res://Kenney/PNG/Enemies/wingMan1.png" type="Texture" id=6]
+[ext_resource path="res://Kenney/PNG/Enemies/wingMan2.png" type="Texture" id=7]
+[ext_resource path="res://Kenney/PNG/Enemies/wingMan3.png" type="Texture" id=8]
+[ext_resource path="res://Kenney/PNG/Enemies/wingMan4.png" type="Texture" id=9]
+[ext_resource path="res://Kenney/PNG/Enemies/wingMan5.png" type="Texture" id=10]
+[ext_resource path="res://Imatges/Imatges Miguel/planta.png" type="Texture" id=11]
+[ext_resource path="res://Escenes/PROTAGONISTA.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
 outline_size = 10
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 59.85, 29.2155 )
 
 [sub_resource type="Curve" id=3]
 min_value = -360.0
@@ -63,11 +59,14 @@ color_ramp = SubResource( 6 )
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "Enemic volador 1",
 "speed": 15.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 59.85, 29.2155 )
 
 [sub_resource type="Gradient" id=11]
 offsets = PoolRealArray( 0, 0.266667, 0.511111, 1 )
@@ -138,42 +137,39 @@ text = "Game over"
 
 [node name="Vida_planta" parent="." instance=ExtResource( 4 )]
 
-[node name="Enemic1" type="Area2D" parent="."]
-position = Vector2( 227.933, 223.272 )
-collision_layer = 262656
-collision_mask = 262656
-
-[node name="Sprite" type="Sprite" parent="Enemic1"]
-position = Vector2( -34.2133, -55.472 )
-texture = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemic1"]
-light_mask = 512
-position = Vector2( -34.2133, -55.472 )
-shape = SubResource( 2 )
-
-[node name="enemic" type="KinematicBody2D" parent="Enemic1"]
-position = Vector2( -34.3393, -55.7458 )
-script = ExtResource( 6 )
+[node name="Enemic1" type="KinematicBody2D" parent="."]
+position = Vector2( 193.594, 167.526 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Particles2D" type="Particles2D" parent="Enemic1/enemic"]
+[node name="Particles2D" type="Particles2D" parent="Enemic1"]
 position = Vector2( 0.339298, 0.7458 )
 amount = 100
 lifetime = 2.0
 process_material = SubResource( 9 )
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic1/enemic"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Enemic1"]
 polygon = PoolVector2Array( -20.9099, 19.8612, -13.725, 24.6511, 16.2119, 26.4474, 21.6006, 18.065, 21.6006, -9.47695, 10.8233, -21.4517, -10.1326, -22.0505, -23.9035, -6.48326 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic1/enemic"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Enemic1"]
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 10 )
 animation = "Enemic volador 1"
-frame = 1
+frame = 5
 playing = true
+
+[node name="Area_mor" type="Area2D" parent="Enemic1"]
+editor/display_folded = true
+position = Vector2( 34.3393, 55.7458 )
+collision_layer = 262656
+collision_mask = 262656
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemic1/Area_mor"]
+light_mask = 512
+position = Vector2( -34.2133, -55.472 )
+shape = SubResource( 2 )
 
 [node name="Flor" type="Area2D" parent="."]
 editor/display_folded = true
@@ -185,7 +181,7 @@ polygon = PoolVector2Array( -3.01604, 57.9623, -0.972656, 51.8322, -0.972656, 39
 [node name="Flor2" type="Sprite" parent="Flor"]
 position = Vector2( 528.144, 476.702 )
 scale = Vector2( 0.1, 0.1 )
-texture = ExtResource( 12 )
+texture = ExtResource( 11 )
 
 [node name="Particles2D" type="Particles2D" parent="Flor"]
 position = Vector2( 557.823, 434.412 )
@@ -205,7 +201,7 @@ collision_mask = 524288
 position = Vector2( 25.3712, 530.825 )
 shape = SubResource( 18 )
 
-[node name="Player" parent="." instance=ExtResource( 13 )]
+[node name="Player" parent="." instance=ExtResource( 12 )]
 position = Vector2( 355.737, 431.55 )
 collision_layer = 786944
 collision_mask = 786944
