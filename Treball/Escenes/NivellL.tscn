@@ -138,6 +138,7 @@ text = "Game over"
 [node name="Vida_planta" parent="." instance=ExtResource( 4 )]
 
 [node name="Enemic1" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 193.594, 167.526 )
 script = ExtResource( 5 )
 __meta__ = {
@@ -201,10 +202,37 @@ collision_mask = 524288
 position = Vector2( 25.3712, 530.825 )
 shape = SubResource( 18 )
 
+[node name="Paret_esquerra" type="StaticBody2D" parent="."]
+editor/display_folded = true
+light_mask = 512
+rotation = 1.5708
+collision_layer = 524288
+collision_mask = 524288
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paret_esquerra"]
+position = Vector2( 32.5812, -17.1412 )
+shape = SubResource( 18 )
+
+[node name="Paret_dreta" type="StaticBody2D" parent="."]
+editor/display_folded = true
+light_mask = 512
+rotation = 1.5708
+collision_layer = 524288
+collision_mask = 524288
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paret_dreta"]
+position = Vector2( 72.2366, -1015.74 )
+shape = SubResource( 18 )
+
 [node name="Player" parent="." instance=ExtResource( 12 )]
 position = Vector2( 355.737, 431.55 )
 collision_layer = 786944
 collision_mask = 786944
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="body_entered" from="Enemic1/Area_mor" to="." method="_on_Area_mor_body_entered"]
 [connection signal="body_entered" from="Flor" to="." method="_on_Flor_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
